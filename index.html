@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ශ්‍රී ලංකා දුම්රිය දෙපාර්තමේන්තුව - දුම්රිය නිවාස අයදුම්පත්‍රය</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="application-container">
+        
+        <!-- ================= PAGE 1 ================= -->
+        <div id="page-1" class="page-section" style="display: block;">
+            <div class="header-section">
+                <h2>ශ්‍රී ලංකා දුම්රිය දෙපාර්තමේන්තුව</h2>
+                <h3>දුම්රිය නිවාස අයදුම්පත්‍රය - ප්‍රවාහන උප දෙපාර්තමේන්තුව</h3>
+            </div>
+
+            <div class="note-box">
+                <p><strong>සටහන:</strong> මෙහි සෑම වගන්තියක්ම නිවැරදිවත්, පැහැදිලිවත්, සම්පූර්ණ කළ යුතුය. අසම්පූර්ණ අයදුම්පත් ප්‍රතික්ෂේප කරනු ලැබේ.</p>
+            </div>
+
+            <div class="form-row top-row">
+                <div class="form-group">
+                    <label>අයදුම් කරන නිවාස අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+                <div class="form-group">
+                    <label>ස්ථානය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="house-type">අයදුම් කරන නිවාස වර්ගය:</label>
+                    <select id="house-type" name="house_type" class="dropdown-select">
+                        <option value="" disabled selected>-- නිවාස වර්ගය තෝරන්න --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title">1. අයදුම්කරුගේ විස්තර :</div>
+            
+            <div class="form-group">
+                <label>I. අයදුම්කරුගේ සම්පූර්ණ නම:</label>
+                <span class="dotted-line"></span>
+                <span class="dotted-line"></span>
+            </div>
+            
+            <div class="form-group">
+                <label>II. මුලකුරු සමග නම:</label>
+                <span class="dotted-line"></span>
+            </div>
+
+            <div class="form-group">
+                <label>III. වර්තමාන සේවා ස්ථානය:</label>
+                <span class="dotted-line"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>IV. සේවා අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+                <div class="form-group">
+                    <label>V. පරීක්ෂක අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+                <div class="form-group">
+                    <label>වැටුප්පත් අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dob">VI. උපන් දිනය:</label>
+                    <input type="date" id="dob" name="dob" class="form-input-date">
+                </div>
+                <div class="form-group">
+                    <label>VIII. දුරකථන අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>VII. පෞද්ගලික ලිපිනය:</label>
+                <span class="dotted-line"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>IX. තනතුර:</label>
+                    <span class="dotted-line"></span>
+                </div>
+                <div class="form-group">
+                    <label>XI. ජාතික හැඳුනුම්පත් අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>X. රාජකාරි ලිපිනය:</label>
+                <span class="dotted-line"></span>
+            </div>
+
+            <div class="form-group full-width">
+                <label>XII. සිවිල් තත්වය:</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="civil_status" value="විවාහක" onclick="handleCivilStatus('විවාහක')"> විවාහක</label>
+                    <label class="radio-label"><input type="radio" name="civil_status" value="අවිවාහක" onclick="handleCivilStatus('අවිවාහක')"> අවිවාහක</label>
+                    <label class="radio-label"><input type="radio" name="civil_status" value="දික්කසාදිත" onclick="handleCivilStatus('දික්කසාදිත')"> දික්කසාදිත</label>
+                    <label class="radio-label"><input type="radio" name="civil_status" value="වැන්දඹු" onclick="handleCivilStatus('වැන්දඹු')"> වැන්දඹු</label>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <label>XIII. ඔබ සේවය කරන:</label>
+                <div class="form-group indent">
+                    <label>i. උප දෙපාර්තමේන්තුව:</label>
+                    <select name="sub_department" class="dropdown-select inline-select">
+                        <option value="" disabled selected>-- උප දෙපාර්තමේන්තුව තෝරන්න --</option>
+                    </select>
+                </div>
+                <div class="form-group indent">
+                    <label>ii. වැටුප් සකස් කරන ගිණුම් අංශය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+                <div class="form-group indent">
+                    <label>iii. පෞද්ගලික ලිපිගොනු නඩත්තු කරන කාර්යාලය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+            </div>
+
+            <div class="section-title">2. ඔබගේ සේවය ස්ථිර ද?</div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="confirmed-date">සේවය ස්ථිර වූ දිනය:</label>
+                    <input type="date" id="confirmed-date" name="confirmed_date" class="form-input-date">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gov-date">I. රජයේ සේවයට ප්‍රථමයෙන් පත් වූ දිනය:</label>
+                <input type="date" id="gov-date" name="gov_date" class="form-input-date">
+            </div>
+            <div class="form-group">
+                <label for="railway-date">II. දුම්රිය සේවයට ප්‍රථමයෙන් පත් වූ දිනය:</label>
+                <input type="date" id="railway-date" name="railway_date" class="form-input-date">
+            </div>
+            <div class="form-group">
+                <label for="subdept-date">III. උප දෙපාර්තමේන්තුවේ වැඩ භාර ගත් දිනය:</label>
+                <input type="date" id="subdept-date" name="subdept_date" class="form-input-date">
+            </div>
+            <div class="form-group">
+                <label for="current-post-date">IV. දැනට දරන තනතුරට පත් වූ දිනය:</label>
+                <input type="date" id="current-post-date" name="current_post_date" class="form-input-date">
+            </div>
+
+            <div class="form-group full-width">
+                <label>V. දුම්රිය දෙපාර්තමේන්තුවේ අනෙකුත් උප දෙපාර්තමේන්තු වල සේවය කර තිබේ ද?</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)"> ඔව්</label>
+                    <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)" checked> නැත</label>
+                </div>
+            </div>
+
+            <div id="table-v" class="conditional-table" style="display: none;">
+                <table class="custom-table">
+                    <tr>
+                        <th>උප දෙපාර්තමේන්තුව</th>
+                        <th>සිට</th>
+                        <th>දක්වා</th>
+                    </tr>
+                    <tr>
+                        <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
+                        <td><input type="date" class="form-input-date"></td>
+                        <td><input type="date" class="form-input-date"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group full-width">
+                <label>VI. සේවයේ කඩවීම් ඇත්නම් පහත දක්වන්න.</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="service_breaks" value="yes" onclick="toggleTable('table-vi', true)"> ඔව්</label>
+                    <label class="radio-label"><input type="radio" name="service_breaks" value="no" onclick="toggleTable('table-vi', false)" checked> නැත</label>
+                </div>
+            </div>
+
+            <div id="table-vi" class="conditional-table" style="display: none;">
+                <table class="custom-table">
+                    <tr>
+                        <th>උප දෙපාර්තමේන්තුව</th>
+                        <th>සිට</th>
+                        <th>දක්වා</th>
+                    </tr>
+                    <tr>
+                        <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
+                        <td><input type="date" class="form-input-date"></td>
+                        <td><input type="date" class="form-input-date"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="button-container" style="margin-top: 20px; text-align: right;">
+                <button type="button" class="nav-btn" onclick="changePage('page-1', 'page-2')">Next &raquo;</button>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 2 ================= -->
+        <div id="page-2" class="page-section" style="display: none;">
+            
+            <!-- Section 3: Children Details -->
+            <div id="married-sections">
+                <div class="section-title">3. දරුවන් පිළිබඳ විස්තර</div>
+                
+                <div class="form-group full-width">
+                    <label>I. දරුවන් සිටීනම් ඔබ සමඟ ද යන වග :</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="has_children" value="yes" onclick="toggleContainer('children-details', true)"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="has_children" value="no" onclick="toggleContainer('children-details', false)" checked> නැත</label>
+                    </div>
+                </div>
+
+                <div id="children-details" style="display: none;">
+                    <div class="form-group">
+                        <label>II. දරුවන් පිළිබඳ විස්තර:</label>
+                        <table class="custom-table" style="margin-top: 10px;">
+                            <tr>
+                                <th>සම්පූර්ණ නම</th>
+                                <th>ස්ත්‍රී / පුරුෂ භාවය</th>
+                                <th>උපන් දිනය</th>
+                                <th>සිවිල් තත්වය</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="table-input"></td>
+                                <td>
+                                    <select class="dropdown-select table-select">
+                                        <option value="" disabled selected>-- තෝරන්න --</option>
+                                        <option value="ස්ත්‍රී">ස්ත්‍රී</option>
+                                        <option value="පුරුෂ">පුරුෂ</option>
+                                    </select>
+                                </td>
+                                <td><input type="date" class="form-input-date"></td>
+                                <td>
+                                    <select class="dropdown-select table-select">
+                                        <option value="" disabled selected>-- තෝරන්න --</option>
+                                        <option value="අවිවාහක">අවිවාහක</option>
+                                        <option value="විවාහක">විවාහක</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="note-text">(රජයේ රැකියාවල නියුතු දරුවකු පදිංචි කර ගැනීමට බලාපොරොත්තු වන්නේ නම්, ඒ සඳහා විශේෂ අවසරයක් ලබා ගත යුතුය.)</p>
+                    </div>
+                </div>
+
+                <!-- Section 4: Spouse Details -->
+                <div class="section-title">4. කලත්‍රයා (භාර්යාව / ස්වාමිපුරුෂයා) පිළිබඳ විස්තර :</div>
+                
+                <div class="form-group full-width">
+                    <label>කලත්‍රයා සිටීනම් ඔබ සමඟ ද යන වග :</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="has_spouse" value="yes" onclick="toggleContainer('spouse-details', true)"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="has_spouse" value="no" onclick="toggleContainer('spouse-details', false)" checked> නැත</label>
+                    </div>
+                </div>
+
+                <div id="spouse-details" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>I. සම්පූර්ණ නම:</label>
+                            <span class="dotted-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>II. ජාතික හැඳුනුම්පත් අංකය:</label>
+                            <span class="dotted-line"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>III. රැකියාව:</label>
+                        <span class="dotted-line"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>IV. ඔබට දුම්රිය නිවාසයක් හිමි වුවහොත්, කලත්‍රයා එහි පදිංචියට පැමිණෙන්නේද / නැද්ද යන වග:</label>
+                        <div class="radio-group" style="margin-top: 5px;">
+                            <label class="radio-label"><input type="radio" name="spouse_moving" value="පැමිණේ"> පැමිණේ</label>
+                            <label class="radio-label"><input type="radio" name="spouse_moving" value="පැමිණෙන්නේ නැත"> පැමිණෙන්නේ නැත</label>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Government Employed Spouse Details -->
+                    <div class="section-title">5. කලත්‍රයා රජයේ රැකියාවක නියුතු නම් :</div>
+                    
+                    <div class="form-group full-width">
+                        <label>කලත්‍රයා රජයේ රැකියාවක නියුතු වේද?</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)"> ඔව්</label>
+                            <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)" checked> නැත</label>
+                        </div>
+                    </div>
+
+                    <div id="gov-spouse-details" style="display: none;">
+                        <div class="form-row" style="margin-top: 10px;">
+                            <div class="form-group">
+                                <label>I. සේවය කරන දෙපාර්තමේන්තුව:</label>
+                                <span class="dotted-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>සේවා අංකය:</label>
+                                <span class="dotted-line"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Permanent Address -->
+            <div class="section-title">6. ස්ථිර පදිංචිය :</div>
+            
+            <div class="form-group">
+                <label>I. ස්ථිර පදිංචි ස්ථානයේ ලිපිනය:</label>
+                <span class="dotted-line"></span>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>II. එහි හිමිකරු ඔබ ද?</label>
+                    <div class="radio-group" style="margin-top: 5px;">
+                        <label class="radio-label"><input type="radio" name="owner_is_self" value="yes"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="owner_is_self" value="no"> නැත</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>III. ඔබ රාජකාරියට පැමිණෙන්නේ එහි සිට ද?:</label>
+                    <div class="radio-group" style="margin-top: 5px;">
+                        <label class="radio-label"><input type="radio" name="commute_from_home" value="yes"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="commute_from_home" value="no"> නැත</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Rented House -->
+            <div class="section-title">7. දැනට කුලී නිවාසයක පදිංචි වී සිටී නම් :</div>
+            
+            <div class="form-group full-width">
+                <label>දැනට කුලී නිවාසයක පදිංචි වී සිටී ද?</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="is_rented_house" value="yes" onclick="toggleContainer('rented-house-details', true)"> ඔව්</label>
+                    <label class="radio-label"><input type="radio" name="is_rented_house" value="no" onclick="toggleContainer('rented-house-details', false)" checked> නැත</label>
+                </div>
+            </div>
+
+            <div id="rented-house-details" style="display: none;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>I. එහි අයිතිකරු:</label>
+                        <span class="dotted-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>II. පිහිටි ස්ථානය:</label>
+                        <span class="dotted-line"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container space-between" style="margin-top: 20px; display: flex; justify-content: space-between;">
+                <button type="button" class="nav-btn" onclick="changePage('page-2', 'page-1')">&laquo; Back</button>
+                <button type="button" class="nav-btn" onclick="changePage('page-2', 'page-3')">Next &raquo;</button>
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 3 ================= -->
+        <div id="page-3" class="page-section" style="display: none;">
+            
+            <!-- Section 8: Disability Details -->
+            <div class="section-title">8. ඔබ ඇවිදීමට අපහසු ආබාධිත හෝ රෝගාබාධිතයකින් පෙළෙන්නේ නම්, ඒ බව සඳහන් කරන්න.</div>
+            
+            <div class="form-group full-width">
+                <div class="radio-group" style="margin-bottom: 10px;">
+                    <label class="radio-label"><input type="radio" name="has_disability" value="yes" onclick="toggleContainer('disability-details', true)"> ඔව්</label>
+                    <label class="radio-label"><input type="radio" name="has_disability" value="no" onclick="toggleContainer('disability-details', false)" checked> නැත</label>
+                </div>
+            </div>
+
+            <div id="disability-details" style="display: none;">
+                <div class="form-group">
+                    <span class="dotted-line"></span>
+                </div>
+                <p class="note-text">(රෝගය සහ එහි ස්වභාවය පැහැදිලි කල රජයේ වෛද්‍ය සහතිකයක් මගින් සනාථ කළ යුතුය)</p>
+            </div>
+
+            <!-- Section 9: Previous Railway Quarters Details -->
+            <div class="section-title">9. ඔබ, මීට පෙර, දුම්රිය නිවාසයක පදිංචිව සිටියේ නම් :</div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>I. එහි අංකය:</label>
+                    <span class="dotted-line"></span>
+                </div>
+                <div class="form-group">
+                    <label for="moved-out-date">ඉවත් වූ දිනය:</label>
+                    <input type="date" id="moved-out-date" name="moved_out_date" class="form-input-date">
+                </div>
+            </div>
+
+            <!-- Section 10: Declaration -->
+            <div class="section-title">10. ප්‍රකාශය :</div>
+            <div class="form-group full-width declaration-text" style="font-size: 13px; line-height: 1.6;">
+                <p>මා හට දුම්රිය නිවාසයක් වෙන් කරනු ලැබුවහොත්, සියලු කොන්දේසිවලට යටත්ව භාර ගනිමි.</p>
+            </div>
+
+            <div class="button-container space-between" style="margin-top: 20px; display: flex; justify-content: space-between;">
+                <button type="button" class="nav-btn" onclick="changePage('page-3', 'page-2')">&laquo; Back</button>
+                <button type="submit" class="submit-btn">අයදුම්පත යොමු කරන්න</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Page Navigation & Interactions -->
+    <script>
+        function changePage(currentId, targetId) {
+            document.getElementById(currentId).style.display = 'none';
+            document.getElementById(targetId).style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function toggleTable(tableId, show) {
+            document.getElementById(tableId).style.display = show ? "block" : "none";
+        }
+
+        function toggleContainer(containerId, show) {
+            document.getElementById(containerId).style.display = show ? "block" : "none";
+        }
+
+        function handleCivilStatus(status) {
+            const marriedSections = document.getElementById('married-sections');
+            if (status === 'විවාහක') {
+                marriedSections.style.display = 'block';
+            } else {
+                marriedSections.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
