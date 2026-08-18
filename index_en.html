@@ -43,11 +43,11 @@
                 <div class="form-row top-row">
                     <div class="form-group">
                         <label>Quarters Number Applied For:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="quarter_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label>Location:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -64,31 +64,31 @@
                 
                 <div class="form-group">
                     <label>I. Full Name of the Applicant:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="applicant_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
                 
                 <div class="form-group">
                     <label>II. Name with Initials:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="applicant_name_with_initials" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-group">
                     <label>III. Present Work Station:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="present_work_station" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>IV. Service No:</label>
-                        <span class="dotted-line"></span>
+                         <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label>V. Computer No:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="computer_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label>Salary Sheet No:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="salary_sheet_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -99,13 +99,13 @@
                     </div>
                     <div class="form-group">
                         <label>VIII. Telephone No:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="telephone_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>VII. Private Address:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="private_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-row">
@@ -117,13 +117,13 @@
                     </div>
                     <div class="form-group">
                         <label>XI. National Identity Card (NIC) No:</label>
-                        <span class="dotted-line"></span>
+                         <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>X. Official Address:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="official_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-group full-width">
@@ -146,11 +146,11 @@
                     </div>
                     <div class="form-group indent">
                         <label>ii. Accounts Branch preparing salary:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="accounts_branch" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group indent">
                         <label>iii. Office maintaining personal files:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="personal_files_office" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -303,7 +303,47 @@
                                             </select>
                                         </td>
                                     </tr>
-                                    tr>
+                                    <tr>
+                                        <td><input type="text" class="table-input"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- Select --</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Male">Male</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="date" class="form-input-date"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- Select --</option>
+                                                <option value="Unmarried">Unmarried</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Divorced">Divorced</option>
+                                                <option value="Widowed">Widowed</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="table-input"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- Select --</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Male">Male</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="date" class="form-input-date"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- Select --</option>
+                                                <option value="Unmarried">Unmarried</option>
+                                                <option value="Married">Married</option>
+                                                <option value="Divorced">Divorced</option>
+                                                <option value="Widowed">Widowed</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td><input type="text" class="table-input"></td>
                                         <td>
                                             <select class="dropdown-select table-select">
@@ -343,17 +383,17 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>I. Full Name:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
                             <div class="form-group">
                                 <label>II. NIC No:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>III. Occupation:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="spouse_occupation" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
 
                         <div class="form-group">
@@ -378,32 +418,32 @@
                             <div class="form-row" style="margin-top: 10px;">
                                 <div class="form-group">
                                     <label>I. Department:</label>
-                                    <span class="dotted-line"></span>
+                                    <input type="text" name="spouse_department" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                                 </div>
                                 <div class="form-group">
                                     <label>Service No:</label>
-                                    <span class="dotted-line"></span>
+                                    <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>II. Designation:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_position" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
 
                             <div class="form-group">
                                 <label>III. Head of Institution and Address:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_head_institution" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
 
                             <div class="form-group">
                                 <label>IV. Present Work Station and Address:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_work_station" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
 
                             <div class="form-group">
                                 <label>V. Present Annual Salary:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -413,7 +453,7 @@
                 
                 <div class="form-group">
                     <label>I. Address of Permanent Residence:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-row">
@@ -425,7 +465,7 @@
                         </div>
                         <div style="margin-top: 10px;">
                             <label style="display: block; margin-bottom: 5px;">If not, relationship to the owner:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
                     <div class="form-group">
@@ -473,17 +513,17 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>I. Owner's Name:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="owner_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                         <div class="form-group">
                             <label>II. Location:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="spouse_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>III. Address:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="owner_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
 
                     <div class="form-row">
@@ -493,7 +533,7 @@
                         </div>
                         <div class="form-group">
                             <label>V. Monthly rent paid:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
                 </div>
@@ -518,7 +558,7 @@
                 <div id="disability-details" style="display: none;">
                     <div class="form-group">
                         <label>Details of illness and its nature:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label for="medical-cert">Upload Government Medical Certificate:</label>
@@ -532,7 +572,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>I. Quarters Number:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="quarters_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label for="moved-out-date">Date Vacated:</label>
@@ -542,7 +582,7 @@
 
                 <div class="form-group">
                     <label>Reason for vacating:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="vacating_reason" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-group full-width">
@@ -556,7 +596,7 @@
                 <div id="rejected-details" style="display: none;">
                     <div class="form-group">
                         <label>If so, details thereof:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="rejected_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -576,12 +616,12 @@
                         </div>
                         <div class="form-group">
                             <label>Type of Quarters:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="quarters_type" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Location:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="quarters_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 

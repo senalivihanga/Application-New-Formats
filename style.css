@@ -149,15 +149,23 @@ body {
     min-height: 20px;
 }
 
+/* Inputs, Textboxes, Dropdowns & Dates */
 .dropdown-select, .form-input-date, .table-input, .form-input {
     width: 100%;
-    padding: 7px 10px;
-    border: 1px solid #ccc;
+    padding: 10px 12px;  /* Textbox එක ඇතුළ ඉඩ වැඩි කිරීම සඳහා */
+    border: 1px solid #b0b0b0;
     border-radius: 4px;
     font-size: 14px;
     box-sizing: border-box;
+    background-color: #fff;
+    margin-top: 5px;     /* Label එකයි textbox එකයි අතර පරතරය */
 }
 
+.table-input:focus, .dropdown-select:focus, .form-input-date:focus {
+    border-color: #0f4c81;
+    outline: none;
+    box-shadow: 0 0 5px rgba(15, 76, 129, 0.2);
+}
 .inline-select-sm {
     width: auto;
     display: inline-block;
@@ -228,6 +236,58 @@ body {
 
 .nav-btn:hover, .submit-btn:hover {
     background-color: #0b3961;
+}
+
+/* Dashboard Styles */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.dashboard-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.lang-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.sinhala-btn {
+    background-color: #0f4c81;
+    color: white;
+}
+
+.sinhala-btn:hover {
+    background-color: #0b3961;
+}
+
+.english-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.english-btn:hover {
+    background-color: #218838;
 }
 
 /* Print Styles for PDF generation */

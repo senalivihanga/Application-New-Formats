@@ -47,11 +47,11 @@
                 <div class="form-row top-row">
                     <div class="form-group">
                         <label>අයදුම් කරන නිවාස අංකය :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="house_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label>ස්ථානය :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -68,31 +68,31 @@
                 
                 <div class="form-group">
                     <label>I. අයදුම්කරුගේ සම්පූර්ණ නම :</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="full_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
                 
                 <div class="form-group">
                     <label>II. මුලකුරු සමග නම:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="initials" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-group">
                     <label>III. වර්තමාන සේවා ස්ථානය :</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>IV. සේවා අංකය :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="service_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label>V. පරිගණක අංකය:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="computer_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label>වැටුප්පත් අංකය :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="salary_slip_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -103,13 +103,13 @@
                     </div>
                     <div class="form-group">
                         <label>VIII. දුරකථන අංකය :</label>
-                        <span class="dotted-line"></span>
+                         <input type="text" name="phone_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>VII. පෞද්ගලික ලිපිනය:</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-row">
@@ -121,13 +121,13 @@
                     </div>
                     <div class="form-group">
                         <label>XI. ජාතික හැඳුනුම්පත් අංකය:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>X. රාජකාරි ලිපිනය :</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="residential_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-group full-width">
@@ -150,11 +150,11 @@
                     </div>
                     <div class="form-group indent">
                         <label>ii. වැටුප් සකස් කරන ගිණුම් අංශය :</label>
-                        <span class="dotted-line"></span>
+                         <input type="text" name="salary_account" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;"><span class="dotted-line"></span>
                     </div>
                     <div class="form-group indent">
                         <label>iii. පෞද්ගලික ලිපිගොනු නඩත්තු කරන කාර්යාලය:</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="official_letter_office" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;"><span class="dotted-line"></span>
                     </div>
                 </div>
 
@@ -319,6 +319,34 @@
                                             </select>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td><input type="text" class="table-input"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- තෝරන්න --</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="date" class="form-input-date"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- තෝරන්න --</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="table-input"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- තෝරන්න --</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="date" class="form-input-date"></td>
+                                        <td>
+                                            <select class="dropdown-select table-select">
+                                                <option value="" disabled selected>-- තෝරන්න --</option>
+                                            </select>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <p class="note-text">(රජයේ රැකියාවල නියුතු දරුවකු පදිංචි කර ගැනීමට බලාපොරොත්තු වන්නේ නම්, ඒ සඳහා විශේෂ අවසරයක් ලබා ගත යුතුය.)</p>
@@ -339,17 +367,17 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>I. සම්පූර්ණ නම :</label>
-                                <span class="dotted-line"></span>
+                                 <input type="text" name="spouse_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
                             <div class="form-group">
                                 <label>II. ජාතික හැඳුනුම්පත් අංකය:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>III. රැකියාව :</label>
-                            <span class="dotted-line"></span>
+                             <input type="text" name="spouse_occupation" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
 
                         <div class="form-group">
@@ -374,32 +402,32 @@
                             <div class="form-row" style="margin-top: 10px;">
                                 <div class="form-group">
                                     <label>I. සේවය කරන දෙපාර්තමේන්තුව :</label>
-                                    <span class="dotted-line"></span>
+                                    <input type="text" name="spouse_department" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                                 </div>
                                 <div class="form-group">
                                     <label>සේවා අංකය :</label>
-                                    <span class="dotted-line"></span>
+                                    <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>II. තනතුර :</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_position" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
 
                             <div class="form-group">
                                 <label>III. ආයතන ප්‍රධානියා හා ඔහුගේ ලිපිනය:</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_institution" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
 
                             <div class="form-group">
                                 <label>IV. දැනට සේවය කරනු ලබන ස්ථානය හා ලිපිනය :</label>
-                                <span class="dotted-line"></span>
+                                <input type="text" name="spouse_current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
 
                             <div class="form-group">
-                                <label>V. දැනට ලබන වාර්ෂික වැටුප:</label>
-                                <span class="dotted-line"></span>
+                                <label>V. දැනට ලබන වාර්ෂික වැටුප :</label>
+                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                             </div>
                         </div>
                     </div>
@@ -409,7 +437,7 @@
                 
                 <div class="form-group">
                     <label>I. ස්ථිර පදිංචි ස්ථානයේ ලිපිනය :</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-row">
@@ -421,7 +449,7 @@
                         </div>
                         <div style="margin-top: 10px;">
                             <label style="display: block; margin-bottom: 5px;">එසේ නොමැති නම් හිමිකරුට ඇති සම්බන්ධතාවය :</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
                     <div class="form-group">
@@ -465,17 +493,17 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>I. එහි අයිතිකරු :</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="house_owner" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                         <div class="form-group">
                             <label>II. පිහිටි ස්ථානය:</label>
-                            <span class="dotted-line"></span>
+                             <input type="text" name="house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>III. එහි ලිපිනය :</label>
-                        <span class="dotted-line"></span>
+                         <input type="text" name=" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
 
                     <div class="form-row">
@@ -485,7 +513,7 @@
                         </div>
                         <div class="form-group">
                             <label>V. ගෙවන මාසික කුලිය:</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
                 </div>
@@ -511,7 +539,7 @@
                 <div id="disability-details" style="display: none;">
                     <div class="form-group">
                         <label>රෝගය සහ එහි ස්වභාවය පිළිබඳ විස්තර :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label for="medical-cert">රජයේ වෛද්‍ය සහතිකය :</label>
@@ -525,7 +553,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>I. එහි අංකය :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="quarter_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group">
                         <label for="moved-out-date">ඉවත් වූ දිනය:</label>
@@ -535,7 +563,7 @@
 
                 <div class="form-group">
                     <label>ඉවත් වීමට හේතුව :</label>
-                    <span class="dotted-line"></span>
+                    <input type="text" name="reason_for_moving_out" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                 </div>
 
                 <div class="form-group full-width">
@@ -549,7 +577,7 @@
                 <div id="rejected-details" style="display: none;">
                     <div class="form-group">
                         <label>එසේ නම්, ඒ පිළිබඳ විස්තර :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="rejected_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
@@ -569,12 +597,12 @@
                         </div>
                         <div class="form-group">
                             <label>නිවාස වර්ගය :</label>
-                            <span class="dotted-line"></span>
+                            <input type="text" name="house_type" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>ස්ථානය :</label>
-                        <span class="dotted-line"></span>
+                        <input type="text" name="house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                 </div>
 
