@@ -290,6 +290,22 @@ body {
     background-color: #218838;
 }
 
+/* සාමාන්‍ය තිරයේදී අනුමත කිරීමේ කොටස නොපෙන්වයි */
+#print-approval-section {
+    display: none !important;
+}
+
+/* සාමාන්‍ය තිරයේදී විෂය ලිපිකරුගේ නිර්දේශිත කොටස නොපෙන්වයි */
+.clerk-approval-section {
+    display: none;
+}
+
+/* සාමාන්‍ය තිරයේදී අනුමත කිරීමේ සහ නිර්දේශ කිරීමේ කොටස් සම්පූර්ණයෙන්ම සැඟවේ */
+.office-approval-section {
+    display: none;
+}
+
+
 /* Print Styles for PDF generation */
 @media print {
     .top-navbar, .back-btn-top, .nav-btn, .print-btn, button {
@@ -308,4 +324,31 @@ body {
         display: block !important;
         page-break-after: always;
     }
+    #print-approval-section {
+        display: block !important;
+    }
+    .button-container {
+        display: none !important;
+    }
+    .clerk-approval-section {
+        display: block !important;
+    }
+    body {
+        background-color: white !important;
+    }
+    
+    .office-approval-section {
+        display: block !important;
+    page-break-inside: avoid;
+    }
+
+    /* මුද්‍රණය කරන විට බොත්තම් සැඟවීම */
+    button {
+        display: none !important;
+    }
+
+    fieldset {
+        border-color: #333 !important;
+    }
+    
 }
