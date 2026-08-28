@@ -18,11 +18,12 @@ body {
 }
 
 .application-container {
-    max-width: 950px;
+    width: 210mm;          
     background: #ffffff;
-    margin: 20px auto;
-    padding: 30px 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+    padding: 20mm;         
+    margin: 40px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); 
+    box-sizing: border-box;
     border-radius: 4px;
 }
 
@@ -142,23 +143,16 @@ body {
     font-weight: 500;
 }
 
-.dotted-line {
-    display: inline-block;
-    border-bottom: 1px dotted #555;
-    width: 100%;
-    min-height: 20px;
-}
-
 /* Inputs, Textboxes, Dropdowns & Dates */
 .dropdown-select, .form-input-date, .table-input, .form-input {
     width: 100%;
-    padding: 10px 12px;  /* Textbox එක ඇතුළ ඉඩ වැඩි කිරීම සඳහා */
+    padding: 10px 12px;  
     border: 1px solid #b0b0b0;
     border-radius: 4px;
     font-size: 14px;
     box-sizing: border-box;
     background-color: #fff;
-    margin-top: 5px;     /* Label එකයි textbox එකයි අතර පරතරය */
+    margin-top: 5px;     
 }
 
 .table-input:focus, .dropdown-select:focus, .form-input-date:focus {
@@ -166,6 +160,7 @@ body {
     outline: none;
     box-shadow: 0 0 5px rgba(15, 76, 129, 0.2);
 }
+
 .inline-select-sm {
     width: auto;
     display: inline-block;
@@ -185,11 +180,6 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-.sub-section {
-    margin-left: 20px;
-    margin-top: 15px;
 }
 
 .indent {
@@ -238,73 +228,12 @@ body {
     background-color: #0b3961;
 }
 
-/* Dashboard Styles */
-.dashboard-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    text-align: center;
-}
-
-.dashboard-card {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    max-width: 500px;
-    width: 100%;
-}
-
-.lang-btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    margin: 15px 0;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-
-.sinhala-btn {
-    background-color: #0f4c81;
-    color: white;
-}
-
-.sinhala-btn:hover {
-    background-color: #0b3961;
-}
-
-.english-btn {
-    background-color: #28a745;
-    color: white;
-}
-
-.english-btn:hover {
-    background-color: #218838;
-}
-
-/* සාමාන්‍ය තිරයේදී අනුමත කිරීමේ කොටස නොපෙන්වයි */
-#print-approval-section {
-    display: none !important;
-}
-
-/* සාමාන්‍ය තිරයේදී විෂය ලිපිකරුගේ නිර්දේශිත කොටස නොපෙන්වයි */
-.clerk-approval-section {
+/* සාමාන්‍ය තිරයේදී අනුමත කිරීමේ සහ නිර්දේශ කිරීමේ කොටස් සැඟවේ */
+#print-approval-section, 
+.clerk-approval-section, 
+.print-only-element {
     display: none;
 }
-
-/* සාමාන්‍ය තිරයේදී අනුමත කිරීමේ සහ නිර්දේශ කිරීමේ කොටස් සම්පූර්ණයෙන්ම සැඟවේ */
-.office-approval-section {
-    display: none;
-}
-
 
 /* Print Styles for PDF generation */
 @media print {
@@ -312,13 +241,14 @@ body {
         display: none !important;
     }
     body {
-        background-color: #fff;
+        background-color: #fff !important;
         padding: 0;
     }
     .application-container {
         box-shadow: none;
         padding: 0;
-        max-width: 100%;
+        width: 100%;
+        margin: 0;
     }
     .page-section {
         display: block !important;
@@ -326,29 +256,16 @@ body {
     }
     #print-approval-section {
         display: block !important;
-    }
-    .button-container {
-        display: none !important;
+        page-break-inside: avoid;
     }
     .clerk-approval-section {
         display: block !important;
+        page-break-inside: avoid;
     }
-    body {
-        background-color: white !important;
-    }
-    
-    .office-approval-section {
+    .print-only-element {
         display: block !important;
-    page-break-inside: avoid;
     }
-
-    /* මුද්‍රණය කරන විට බොත්තම් සැඟවීම */
-    button {
-        display: none !important;
-    }
-
     fieldset {
         border-color: #333 !important;
     }
-    
 }
