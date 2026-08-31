@@ -272,4 +272,18 @@ body {
         break-inside: avoid;
         page-break-inside: avoid;
     }
+   @page {
+        size: A4;
+        margin-top: 25mm;    /* ඉහළින් තබා ගන්නා ඉඩ ප්‍රමාණය */
+        margin-bottom: 20mm; /* පහළින් තබා ගන්නා ඉඩ ප්‍රමාණය */
+        margin-left: 15mm;   /* වම් පැත්තෙන් ඉඩ ප්‍රමාණය */
+        margin-right: 15mm;  /* දකුණු පැත්තෙන් ඉඩ ප්‍රමාණය */
+    }
+
+    body {
+        margin: 0;
+        background-color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+    }
 }
+
