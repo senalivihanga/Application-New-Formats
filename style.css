@@ -268,4 +268,8 @@ body {
     fieldset {
         border-color: #333 !important;
     }
+    .no-break-between {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
 }
