@@ -40,8 +40,25 @@
         /* Main Container */
         .main-container {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 20px;
+        }
+        /* Back Button Style */
+        .back-dashboard-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            background-color: #e5e7eb;
+            color: #374151;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            border: 1px solid #d1d5db;
+        }
+        .back-dashboard-btn:hover {
+            background-color: #d1d5db;
         }
         .dashboard-card {
             background: white;
@@ -151,11 +168,15 @@
     <!-- Top Maroon Navigation Bar -->
     <div class="top-navbar">
         <span>Sri Lanka Railways - Department of Railways</span>
+        <span class="badge">Quarters Management System</span>
     </div>
 
     <!-- Main Container Card -->
     <div class="main-container">
         
+        <!-- Back to Applicant Dashboard Button -->
+        <a href="applicant_dashboard.html" class="back-dashboard-btn">&larr; Back to Applicant Dashboard</a>
+
         <div class="dashboard-card">
             
             <!-- Title Section -->
@@ -178,21 +199,21 @@
                 <div id="content-joint" class="tab-content active">
                     <h3>Joint Residence Management</h3>
                     <p>Managing and processing applications for another resident to stay or co-occupy the quarters with the consent of the primary resident.</p>
-                    <a href="application.html" class="action-btn maroon">Open Application Form &rarr;</a>
+                    <a href="apply.html" class="action-btn maroon">Open &rarr;</a>
                 </div>
 
                 <!-- Single Residence Tab Content -->
                 <div id="content-single" class="tab-content">
                     <h3>Single Residence Allocation</h3>
                     <p>Allocation of a separate quarter exclusively for a single family only, along with managing applications and related information.</p>
-                    <a href="application.html" class="action-btn maroon">Open Application Form &rarr;</a>
+                    <a href="language_dashboard.html" class="action-btn maroon">Open &rarr;</a>
                 </div>
 
                 <!-- Giving Voluntarily Tab Content -->
                 <div id="content-voluntary" class="tab-content">
                     <h3>Giving Voluntarily</h3>
                     <p>The process of voluntarily providing or handing over quarters based on the agreement and consent of the Transport Authority.</p>
-                    <a href="total_marks.html" class="action-btn maroon">Open Application Form &rarr;</a>
+                    <a href="language_dashboard.html" class="action-btn maroon">Open &rarr;</a>
                 </div>
 
             </div>

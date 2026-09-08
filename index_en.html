@@ -10,7 +10,7 @@
 
     <!-- Top Maroon Header Bar -->
     <div class="top-navbar">
-        Sri Lanka Railways - Railway Quarters Application Form[cite: 5]
+        Sri Lanka Railways - Railway Quarters Application Form
     </div>
 
     <div class="application-container">
@@ -18,7 +18,7 @@
         <!-- Header Actions: Back Button & Office Use Box -->
         <div class="header-action-row">
             <div>
-                <button type="button" class="back-btn-top" onclick="handleTopBack()">&laquo; Dashboard</button>
+                <button type="button" class="back-btn-top" onclick="window.location.href='language_dashboard.html'">&laquo; Back </button>
             </div>
             <div class="office-use-box">
                 <div class="office-title">*** For Office Use Only ***</div>
@@ -750,6 +750,7 @@
         }
 
         function handleTopBack() {
+            window.location.href = 'language_dashboard.html';
             if (currentPage === 2) {
                 changePage('page-2', 'page-1');
             } else if (currentPage === 3) {

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Railways - Joint Residence Management</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+        }
+        /* Top Maroon Navigation Bar */
+        .top-navbar {
+            width: 100%;
+            background-color: #701515;
+            color: white;
+            padding: 14px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-navbar span.badge {
+            font-size: 12px;
+            background-color: #5a1010;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #fde68a;
+            font-weight: normal;
+        }
+        /* Main Container */
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .dashboard-card {
+            background: white;
+            padding: 35px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        .dashboard-card h1 {
+            font-size: 22px;
+            color: #0f4c81;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .dashboard-card h2 {
+            font-size: 15px;
+            color: #4b5563;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+        /* Search Section */
+        .search-box-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+        .search-input {
+            width: 60%;
+            padding: 10px 15px;
+            font-size: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: #0f4c81;
+        }
+        .search-btn {
+            background-color: #0f4c81;
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .search-btn:hover {
+            background-color: #0b3961;
+        }
+        /* Details Result Section */
+        .result-container {
+            display: none;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .result-container.active {
+            display: block;
+        }
+        .result-title {
+            font-size: 16px;
+            color: #0f4c81;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .details-item {
+            background: white;
+            padding: 10px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+        .details-item span {
+            font-weight: bold;
+            color: #4b5563;
+        }
+        .apply-btn {
+            display: block;
+            width: 100%;
+            background-color: #701515;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .apply-btn:hover {
+            background-color: #5a1010;
+        }
+        .error-msg {
+            color: #dc2626;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #0f4c81;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Print formatting styles to remove headers/footers and manage margins */
+        @media print {
+            @page {
+                size: A4;
+                margin-top: 20mm;
+                margin-bottom: 20mm;
+                margin-left: 15mm;
+                margin-right: 15mm;
+            }
+            body {
+                background-color: #ffffff !important;
+                margin: 0;
+            }
+            .search-box-container, .search-btn, .back-link {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Maroon Navigation Bar -->
+    <div class="top-navbar">
+        <span>Sri Lanka Railways - Department of Railways</span>
+    </div>
+
+    <!-- Main Container Card -->
+    <div class="main-container">
+        
+        <a href="residence.html" class="back-link">&larr; Back to Main Dashboard</a>
+
+        <div class="dashboard-card">
+            <h1>Joint Residence - Quarter Search</h1>
+            <h2>Search existing quarter details using Quarter Number</h2>
+            
+            <!-- Search Bar Form -->
+            <div class="search-box-container">
+                <input type="text" id="quarterSearchInput" class="search-input" placeholder="Enter Quarter No (e.g., Q-001)" />
+                <button onclick="searchQuarter()" class="search-btn">Search Quarter</button>
+            </div>
+
+            <div id="errorMsg" class="error-msg">Quarter not found. Please check the Quarter No and try again.</div>
+
+            <!-- Quarter Details Result Box -->
+            <div id="resultContainer" class="result-container">
+                <div class="result-title">Assigned Resident & Quarter Information</div>
+                
+                <div class="details-grid">
+                    <div class="details-item"><span>No:</span> <span id="resNo">-</span></div>
+                    <div class="details-item"><span>NIC:</span> <span id="resNic">-</span></div>
+                    <div class="details-item"><span>Computer No:</span> <span id="resCompNo">-</span></div>
+                    <div class="details-item"><span>Quarter Type:</span> <span id="resType">-</span></div>
+                    <div class="details-item"><span>Resident Name:</span> <span id="resName">-</span></div>
+                    <div class="details-item"><span>Designation:</span> <span id="resDesignation">-</span></div>
+                    <div class="details-item"><span>Workplace:</span> <span id="resWorkplace">-</span></div>
+                    <div class="details-item"><span>Allocated Date:</span> <span id="resDate">-</span></div>
+                    <div class="details-item" style="grid-column: span 2;"><span>Other:</span> <span id="resOther">-</span></div>
+                </div>
+
+                <!-- Apply Quarter Button -> Redirects to Language Selection Dashboard -->
+                <a href="language_dashboard.html" class="apply-btn">Apply Quarter & Proceed to Language Selection &rarr;</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Search Logic -->
+    <script>
+        // Sample database simulation for quarters
+        const quartersData = {
+            "Q-001": {
+                no: "Q-001",
+                nic: "199012345678",
+                compNo: "C-1001",
+                type: "Joint Residence",
+                name: "S. Vihanga",
+                designation: "Station Master",
+                workplace: "Colombo Fort",
+                allocatedDate: "2024-05-10",
+                other: "Primary resident active with shared occupant approval."
+            },
+            "Q-002": {
+                no: "Q-002",
+                nic: "198587654321",
+                compNo: "C-1002",
+                type: "Joint Residence",
+                name: "A. B. Perera",
+                designation: "Signal Inspector",
+                workplace: "Maradana",
+                allocatedDate: "2023-11-15",
+                other: "Standard joint allocation agreement completed."
+            }
+        };
+
+        function searchQuarter() {
+            const query = document.getElementById('quarterSearchInput').value.trim();
+            const resultBox = document.getElementById('resultContainer');
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (quartersData[query]) {
+                const data = quartersData[query];
+                document.getElementById('resNo').innerText = data.no;
+                document.getElementById('resNic').innerText = data.nic;
+                document.getElementById('resCompNo').innerText = data.compNo;
+                document.getElementById('resType').innerText = data.type;
+                document.getElementById('resName').innerText = data.name;
+                document.getElementById('resDesignation').innerText = data.designation;
+                document.getElementById('resWorkplace').innerText = data.workplace;
+                document.getElementById('resDate').innerText = data.allocatedDate;
+                document.getElementById('resOther').innerText = data.other;
+
+                resultBox.classList.add('active');
+                errorMsg.style.display = 'none';
+            } else {
+                resultBox.classList.remove('active');
+                errorMsg.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -18,7 +18,7 @@
         <!-- Header Actions: Back Button & Office Use Box -->
         <div class="header-action-row">
             <div>
-                <button type="button" class="back-btn-top" onclick="handleTopBack()">&laquo; මුල් පිටුවට </button>
+                <button type="button" class="back-btn-top" onclick="window.location.href='language_dashboard.html'">&laquo; ආපසු </button>
             </div>
             <div class="office-use-box">
                 <div class="office-title">*** කාර්යාලීය ප්‍රයෝජනය සඳහායි ***</div>
@@ -751,6 +751,7 @@
         }
 
         function handleTopBack() {
+            window.location.href = 'language_dashboard.html';
             if (currentPage === 2) {
                 changePage('page-2', 'page-1');
             } else if (currentPage === 3) {
