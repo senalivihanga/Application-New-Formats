@@ -8,14 +8,12 @@
 </head>
 <body>
 
-    <!-- Top Maroon Header Bar -->
     <div class="top-navbar">
         Sri Lanka Railways - Railway Quarters Application Form
     </div>
 
     <div class="application-container">
         
-        <!-- Header Actions: Back Button & Office Use Box -->
         <div class="header-action-row">
             <div>
                 <button type="button" class="back-btn-top" onclick="window.location.href='language_dashboard.html'">&laquo; Back </button>
@@ -29,7 +27,6 @@
             </div>
         </div>
 
-        <!-- Main Form Title Section -->
         <div class="main-title-container">
             <h1>Sri Lanka Railways</h1>
             <h2>Application for Railway Quarters - Transportation Sub-Department</h2>
@@ -46,20 +43,30 @@
 
                 <div class="form-row top-row">
                     <div class="form-group">
-                        <label>Quarters Number Applied For :</label>
-                        <input type="text" name="house_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <label>Location :</label>
+                        <select id="location-dropdown" name="location" class="dropdown-select" onchange="updateHouseNumbers()" onkeydown="handleEnter(event, 'house-number-dropdown')">
+                            <option value="" disabled selected>-- Select Location --</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Kandy">Kandy</option>
+                            <option value="Galle">Galle</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>Location :</label>
-                        <input type="text" name="location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <label>Quarters Number Applied For :</label>
+                        <select id="house-number-dropdown" name="house_no" class="dropdown-select" onkeydown="handleEnter(event, 'house-type')">
+                            <option value="" disabled selected>-- Select Location First --</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="house-type">Type of Quarters Applied For :</label>
-                        <select id="house-type" name="house_type" class="dropdown-select">
+                        <select id="house-type" name="house_type" class="dropdown-select" onkeydown="handleEnter(event, 'full_name')">
                             <option value="" disabled selected>-- Select --</option>
+                            <option value="Type A">Type A</option>
+                            <option value="Type B">Type B</option>
+                            <option value="Type C">Type C</option>
                         </select>
                     </div>
                 </div>
@@ -68,60 +75,79 @@
                 
                 <div class="form-group">
                     <label>I. Full Name of the Applicant :</label>
-                    <input type="text" name="full_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="full_name" id="full_name" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'initials')">
                 </div>
                 
                 <div class="form-group">
                     <label>II. Name with Initials :</label>
-                    <input type="text" name="initials" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="initials" id="initials" class="table-input" placeholder="Ex: H. M. Perera" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'current_post')">
                 </div>
 
                 <div class="form-group">
                     <label>III. Present Work Station :</label>
-                    <input type="text" name="current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <select name="current_post" id="current_post" class="dropdown-select" onkeydown="handleEnter(event, 'service_no')">
+                        <option value="" disabled selected>-- Select Work Station --</option>
+                        <option value="Headquarters">Headquarters</option>
+                        <option value="Kandy Railway Station">Kandy Railway Station</option>
+                        <option value="Galle Railway Station">Galle Railway Station</option>
+                    </select>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>IV. Service No :</label>
-                        <input type="text" name="service_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="service_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'computer_no')">
                     </div>
-                    <div class="form-group">
-                        <label>V. Computer No :</label>
-                        <input type="text" name="computer_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
-                    </div>
-                    <div class="form-group">
-                        <label>Salary Sheet No :</label>
-                        <input type="text" name="salary_slip_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
-                    </div>
+                   <style>
+    /* අංක පෙට්ටිවල ඇති arrow සලකුණු ඉවත් කිරීම සඳහා */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+</style>
+
+<div class="form-group">
+    <label>V. Computer No :</label>
+    <input type="number" name="computer_no" id="computer_no" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'salary_slip_no')">
+</div>
+<div class="form-group">
+    <label>Salary Sheet No :</label>
+    <input type="number" name="salary_slip_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'dob')">
+</div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="dob">VI. Date of Birth :</label>
-                        <input type="date" id="dob" name="dob" class="form-input-date">
+                        <input type="date" id="dob" name="dob" class="form-input-date" onkeydown="handleEnter(event, 'permanent_address')">
                     </div>
                     <div class="form-group">
                         <label>VIII. Telephone No :</label>
-                         <input type="text" name="phone_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                         <input type="tel" name="phone_no" id="phone_no" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'permanent_address')">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>VII. Private Address :</label>
-                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'designation')">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>IX. Designation :</label>
-                        <select id="designation" name="designation" class="dropdown-select">
+                        <select id="designation" name="designation" class="dropdown-select" onkeydown="handleEnter(event, 'national_id')">
                             <option value="" disabled selected>-- Select --</option>
+                            <option value="Controller">Controller</option>
+                            <option value="Station Master">Station Master</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>XI. National Identity Card (NIC) No :</label>
-                        <input type="text" name="national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="national_id" id="national_id" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'residential_address')">
                     </div>
                 </div>
 
@@ -151,12 +177,20 @@
                         </div>
                         <div class="form-group indent">
                             <label>ii. Accounts Branch preparing salary :</label>
-                             <input type="text" name="salary_account" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                             <select name="salary_account" class="dropdown-select">
+                                 <option value="" disabled selected>-- Select Branch --</option>
+                                 <option value="Main Accounts Branch">Main Accounts Branch</option>
+                                 <option value="Colombo Accounts Branch">Colombo Accounts Branch</option>
+                             </select>
                         </div>
                     </div>
                     <div class="form-group indent">
                         <label>iii. Office maintaining personal files :</label>
-                        <input type="text" name="official_letter_office" class="table-input" style="padding: 10px; font-size: 14px; width: 60%;">
+                        <select name="official_letter_office" class="dropdown-select" style="width: 60%;">
+                            <option value="" disabled selected>-- Select Office --</option>
+                            <option value="Head Office Personal Files Branch">Head Office Personal Files Branch</option>
+                            <option value="Provincial Personal Files Branch">Provincial Personal Files Branch</option>
+                        </select>
                     </div>
                 </div>
 
@@ -180,18 +214,18 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="gov-date">I. Date of first appointment to Government Service:</label>
-                        <input type="date" id="gov-date" name="gov_date" class="form-input-date">
+                        <input type="date" id="gov-date" name="gov_date" class="form-input-date" onchange="setMinDate('gov-date', ['railway-date', 'subdept-date', 'current-post-date', 'confirmed-date'])">
                     </div>
                     <div class="form-group">
                         <label for="railway-date">II. Date of first appointment to Railway Service :</label>
-                        <input type="date" id="railway-date" name="railway_date" class="form-input-date">
+                        <input type="date" id="railway-date" name="railway_date" class="form-input-date" onchange="setMinDate('railway-date', ['subdept-date', 'current-post-date'])">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="subdept-date">III. Date of assuming duties in the Sub Department :</label>
-                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date">
+                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date" onchange="setMinDate('subdept-date', ['current-post-date'])">
                     </div>
                     <div class="form-group">
                         <label for="current-post-date">IV. Date of appointment to the present post :</label>
@@ -208,7 +242,7 @@
                 </div>
 
                 <div id="table-v" class="conditional-table" style="display: none;">
-                    <table class="custom-table">
+                    <table class="custom-table" id="table-v-element">
                         <thead>
                             <tr>
                                 <th>Sub-Department</th>
@@ -222,16 +256,12 @@
                                 <td><input type="date" class="form-input-date"></td>
                                 <td><input type="date" class="form-input-date"></td>
                             </tr>
-                             <tr>
-                                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- Select --</option></select></td>
-                                <td><input type="date" class="form-input-date"></td>
-                                <td><input type="date" class="form-input-date"></td>
-                            </tr>
                         </tbody>
                     </table>
+                    <button type="button" class="action-btn" onclick="addTableRow('table-v-element')" style="margin-top:10px; background:#0f4c81; color:white; border:none; padding:5px 10px; cursor:pointer;">Add Row</button>
                 </div>
 
-                <div class="form-group full-width">
+                <div class="form-group full-width" style="margin-top:15px;">
                     <label>VI. If there are any breaks in service? state below :</label>
                     <div class="radio-group">
                         <label class="radio-label"><input type="radio" name="service_breaks" value="yes" onclick="toggleTable('table-vi', true)"> Yes</label>
@@ -240,7 +270,7 @@
                 </div>
 
                 <div id="table-vi" class="conditional-table" style="display: none;">
-                    <table class="custom-table">
+                    <table class="custom-table" id="table-vi-element">
                         <thead>
                             <tr>
                                 <th>Sub-Department</th>
@@ -254,13 +284,9 @@
                                 <td><input type="date" class="form-input-date"></td>
                                 <td><input type="date" class="form-input-date"></td>
                             </tr>
-                            <tr>
-                                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- Select --</option></select></td>
-                                <td><input type="date" class="form-input-date"></td>
-                                <td><input type="date" class="form-input-date"></td>
-                            </tr>
                         </tbody>
                     </table>
+                    <button type="button" class="action-btn" onclick="addTableRow('table-vi-element')" style="margin-top:10px; background:#0f4c81; color:white; border:none; padding:5px 10px; cursor:pointer;">Add Row</button>
                 </div>
 
                 <div class="button-container" style="margin-top: 20px; text-align: right;">
@@ -403,10 +429,10 @@
                     <div class="form-group">
                         <label>II. Are you the owner of it?</label>
                         <div class="radio-group" style="margin-top: 5px;">
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes"> Yes</label>
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no"> No</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes" onclick="toggleOwnerRelationship(false)"> Yes</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no" onclick="toggleOwnerRelationship(true)"> No</label>
                         </div>
-                        <div style="margin-top: 10px;">
+                        <div id="owner-relationship-group" style="margin-top: 10px; display: none;">
                             <label style="display: block; margin-bottom: 5px;">If not, relationship to the owner :</label>
                             <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
@@ -472,7 +498,10 @@
                         </div>
                         <div class="form-group">
                             <label>V. Monthly rent paid :</label>
-                            <input type="text" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <span style="font-weight: bold;">Rs.</span>
+                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0" placeholder="Ex: 15000">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -501,8 +530,8 @@
                         <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
-                        <label for="medical-cert">Government Medical Certificate :</label>
-                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf, .jpg, .jpeg, .png">
+                        <label for="medical-cert" title="This file will be automatically renamed using your NIC number">Government Medical Certificate (PDF only) :</label>
+                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'Will be renamed using NIC number')">
                     </div>
                     <p class="note-text">(The illness and its nature must be certified by a Government Medical Certificate)</p>
                 </div>
@@ -556,12 +585,22 @@
                         </div>
                         <div class="form-group">
                             <label>Type of Quarters :</label>
-                            <input type="text" name="prev_house_type" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <select name="prev_house_type" class="dropdown-select">
+                                <option value="" disabled selected>-- Select --</option>
+                                <option value="Type A">Type A</option>
+                                <option value="Type B">Type B</option>
+                                <option value="Type C">Type C</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Location :</label>
-                        <input type="text" name="prev_house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <select name="prev_house_location" class="dropdown-select">
+                            <option value="" disabled selected>-- Select Location --</option>
+                            <option value="Colombo">Colombo</option>
+                            <option value="Kandy">Kandy</option>
+                            <option value="Galle">Galle</option>
+                        </select>
                     </div>
                 </div>
 
@@ -605,8 +644,8 @@
                         is attached herewith.
                         
                         <div class="form-group" style="margin-top: 10px;">
-                            <label for="salary-cert"> Salary Sheet Copy :</label>
-                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf, .jpg, .jpeg, .png">
+                            <label for="salary-cert" title="This file will be automatically renamed using your Salary Slip Number"> Salary Sheet Copy (PDF only) :</label>
+                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'Will be renamed using Salary Slip Number')">
                         </div>
                     </div>
                 </div>
@@ -616,14 +655,12 @@
                         <label for="page3-date">Date :</label>
                         <input type="date" id="page3-date" name="page3_date" class="form-input-date">
                     </div>
-                    <!-- Applicant's Signature -->
                     <div class="signature-box print-only-element" style="text-align: right; margin-top: 20px;">
                         <div style="border-bottom: 1px dotted #333; width: 250px; display: inline-block; margin-bottom: 5px;"></div>
                         <p style="margin: 0; font-size: 14px;">Applicant's Signature</p>
                     </div>
                 </div>
 
-                <!-- Print Approval Section -->
                 <div id="print-approval-section">
                     <fieldset style="border: 1px solid #ccc; padding: 20px; border-radius: 5px;">
                         <legend style="font-weight: bold; color: #0f4c81; padding: 0 10px;">
@@ -648,7 +685,6 @@
                             <textarea rows="2" style="width: 100%; padding: 8px; border: 1px solid #ccc;" readonly></textarea>
                         </div>
 
-                        <!-- Date and signature for Deputy Superintendent -->
                         <div style="display: flex; justify-content: space-between; margin-top: 20px; align-items: flex-end;">
                             <div>
                                 <label style="display: block; margin-bottom: 5px;">Date :</label>
@@ -662,7 +698,6 @@
                     </fieldset>
                 </div>
 
-                <!-- Clerk Approval Section -->
                 <div class="clerk-approval-section">
                     <fieldset style="border: 1px solid #ccc; padding: 20px; border-radius: 5px; margin-top: 20px;">
                         <legend style="font-weight: bold; color: #0f4c81; padding: 0 10px;">
@@ -707,7 +742,6 @@
                             <textarea name="clerk_rec_other_notes" rows="2" class="table-input" style="margin-top: 5px; width: 100%;"></textarea>
                         </div>
 
-                        <!-- Cabinet Number and Subject Clerk Signature -->
                         <div style="display: flex; justify-content: space-between; margin-top: 20px; align-items: flex-end;">
                             <div>
                                 <label style="display: block; margin-bottom: 5px;">Cabinet Number :</label>
@@ -721,7 +755,6 @@
                     </fieldset>
                 </div>
 
-                <!-- Buttons Area -->
                 <div class="button-container space-between" style="margin-top: 25px; display: flex; justify-content: space-between;">
                     <button type="button" class="nav-btn" onclick="changePage('page-3', 'page-2')">&laquo; Back</button>
                     <div>
@@ -734,55 +767,102 @@
         </form>
     </div>
 
-    <!-- JavaScript -->
     <script>
         let currentPage = 1;
+
+        window.onload = function() {
+            const userData = {
+                full_name: "Amarasiri Gunawardana",
+                computer_no: "45892",
+                national_id: "882341234V",
+                phone_no: "0712345678"
+            };
+            
+            document.getElementById('full_name').value = userData.full_name;
+            document.getElementById('computer_no').value = userData.computer_no;
+            document.getElementById('national_id').value = userData.national_id;
+            document.getElementById('phone_no').value = userData.phone_no;
+        };
+
+        function updateHouseNumbers() {
+            const location = document.getElementById('location-dropdown').value;
+            const houseDropdown = document.getElementById('house-number-dropdown');
+            houseDropdown.innerHTML = '<option value="" disabled selected>-- Select Quarters Number --</option>';
+            
+            let houses = [];
+            if(location === 'Colombo') {
+                houses = ['A-101', 'A-102', 'B-205'];
+            } else if(location === 'Kandy') {
+                houses = ['K-01', 'K-02'];
+            } else if(location === 'Galle') {
+                houses = ['G-11', 'G-12'];
+            }
+            
+            houses.forEach(h => {
+                let opt = document.createElement('option');
+                opt.value = h;
+                opt.textContent = h;
+                houseDropdown.appendChild(opt);
+            });
+        }
+
+        function handleEnter(event, nextFieldId) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const nextField = document.getElementsByName(nextFieldId)[0] || document.getElementById(nextFieldId);
+                if (nextField) {
+                    nextField.focus();
+                }
+            }
+        }
+
+        function setMinDate(fromId, targetIds) {
+            const val = document.getElementById(fromId).value;
+            targetIds.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.min = val;
+            });
+        }
+
+        function toggleOwnerRelationship(show) {
+            document.getElementById('owner-relationship-group').style.display = show ? 'block' : 'none';
+        }
+
+        function showRenameHint(element, message) {
+            element.title = message;
+        }
 
         function changePage(currentId, targetId) {
             document.getElementById(currentId).style.display = 'none';
             document.getElementById(targetId).style.display = 'block';
-            
-            if(targetId === 'page-1') currentPage = 1;
-            else if(targetId === 'page-2') currentPage = 2;
-            else if(targetId === 'page-3') currentPage = 3;
-
             window.scrollTo(0, 0);
         }
 
-        function handleTopBack() {
-            window.location.href = 'language_dashboard.html';
-            if (currentPage === 2) {
-                changePage('page-2', 'page-1');
-            } else if (currentPage === 3) {
-                changePage('page-3', 'page-2');
-            } else {
-                alert('You are on the first page.');
-            }
+        function toggleTable(tableId, show) {
+            document.getElementById(tableId).style.display = show ? "block" : "none";
         }
 
-        function toggleTable(tableId, show) {
-            const tableDiv = document.getElementById(tableId);
-            tableDiv.style.display = show ? "block" : "none";
+        function addTableRow(tableId) {
+            const table = document.getElementById(tableId).getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- Select --</option></select></td>
+                <td><input type="date" class="form-input-date"></td>
+                <td><input type="date" class="form-input-date"></td>
+            `;
         }
 
         function toggleContainer(containerId, show) {
             const container = document.getElementById(containerId);
-            if (show) {
-                container.style.display = 'block';
-                if(containerId === 'children-details') {
-                    const tbody = document.getElementById('children-tbody');
-                    if(tbody.rows.length === 0) {
-                        addChildRow();
-                    }
-                }
-            } else {
-                container.style.display = 'none';
+            container.style.display = show ? 'block' : 'none';
+            if(containerId === 'children-details' && show) {
+                const tbody = document.getElementById('children-tbody');
+                if(tbody.rows.length === 0) addChildRow();
             }
         }
 
         function handleCivilStatus(status) {
-            const marriedSections = document.getElementById('married-sections');
-            marriedSections.style.display = 'block';
+            document.getElementById('married-sections').style.display = 'block';
         }
 
         function printApplication() {
@@ -792,7 +872,6 @@
         function addChildRow() {
             const tbody = document.getElementById('children-tbody');
             const newRow = tbody.insertRow();
-            
             newRow.innerHTML = `
                 <td><input type="text" class="table-input"></td>
                 <td>
@@ -823,17 +902,10 @@
             const count = parseInt(document.getElementById('child-count-input').value) || 0;
             const tbody = document.getElementById('children-tbody');
             const currentRowCount = tbody.rows.length;
-            
             if (count > currentRowCount) {
-                const diff = count - currentRowCount;
-                for (let i = 0; i < diff; i++) {
-                    addChildRow();
-                }
+                for (let i = 0; i < count - currentRowCount; i++) addChildRow();
             } else if (count < currentRowCount && count >= 0) {
-                const diff = currentRowCount - count;
-                for (let i = 0; i < diff; i++) {
-                    tbody.deleteRow(tbody.rows.length - 1);
-                }
+                for (let i = 0; i < currentRowCount - count; i++) tbody.deleteRow(tbody.rows.length - 1);
             }
         }
 
@@ -845,7 +917,9 @@
 
         document.getElementById('railway-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Application submitted successfully!');
+            const appNo = "SLR/HQ/" + Math.floor(100000 + Math.random() * 900000);
+            // Redirects to success page with application number
+            window.location.href = `success.html?appNo=${appNo}`;
         });
     </script>
 </body>

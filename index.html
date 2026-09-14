@@ -8,14 +8,50 @@
 </head>
 <body>
 
-    <!-- Top Maroon Header Bar -->
+    <style>
+    /* අංක පෙට්ටිවල ඇති arrow සලකුණු ඉවත් කිරීම සඳහා */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    /* අංක පෙට්ටියේ arrow සලකුණු (spinners) නැවත පෙන්වීම සඳහා */
+    #child-count-input::-webkit-outer-spin-button,
+    #child-count-input::-webkit-inner-spin-button {
+        -webkit-appearance: inner-spin-button !important;
+        opacity: 1 !important;
+    }
+    #child-count-input {
+        -moz-appearance: number-input !important;
+    }
+    
+    /* Clear බොත්තම සඳහා කුඩා මෝස්තරයක් */
+    .clear-row-btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 5px 8px;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    .clear-row-btn:hover {
+        background: #c0392b;
+    }
+
+</style>
+
     <div class="top-navbar">
         ශ්‍රී ලංකා දුම්රිය දෙපාර්තමේන්තුව - නිවාස අයදුම්පත්‍රය
     </div>
 
     <div class="application-container">
         
-        <!-- Header Actions: Back Button & Office Use Box -->
         <div class="header-action-row">
             <div>
                 <button type="button" class="back-btn-top" onclick="window.location.href='language_dashboard.html'">&laquo; ආපසු </button>
@@ -29,7 +65,6 @@
             </div>
         </div>
 
-        <!-- Main Form Title Section -->
         <div class="main-title-container">
             <h1>ශ්‍රී ලංකා දුම්රිය දෙපාර්තමේන්තුව</h1>
             <h2>දුම්රිය නිවාස අයදුම්පත්‍රය - ප්‍රවාහන උප දෙපාර්තමේන්තුව</h2>
@@ -46,19 +81,23 @@
 
                 <div class="form-row top-row">
                     <div class="form-group">
-                        <label>අයදුම් කරන නිවාස අංකය :</label>
-                        <input type="text" name="house_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <label>ස්ථානය :</label>
+                        <select id="location-dropdown" name="location" class="dropdown-select" onchange="updateHouseNumbers()" onkeydown="handleEnter(event, 'house-number-dropdown')">
+                            <option value="" disabled selected>-- තෝරන්න --</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>ස්ථානය :</label>
-                        <input type="text" name="location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <label>අයදුම් කරන නිවාස අංකය :</label>
+                        <select id="house-number-dropdown" name="house_no" class="dropdown-select" onkeydown="handleEnter(event, 'house-type')">
+                            <option value="" disabled selected>-- තෝරන්න --</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="house-type">අයදුම් කරන නිවාස වර්ගය :</label>
-                        <select id="house-type" name="house_type" class="dropdown-select">
+                        <select id="house-type" name="house_type" class="dropdown-select" onkeydown="handleEnter(event, 'full_name')">
                             <option value="" disabled selected>-- තෝරන්න --</option>
                         </select>
                     </div>
@@ -68,60 +107,64 @@
                 
                 <div class="form-group">
                     <label>I. අයදුම්කරුගේ සම්පූර්ණ නම :</label>
-                    <input type="text" name="full_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="full_name" id="full_name" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'initials')">
                 </div>
                 
                 <div class="form-group">
                     <label>II. මුලකුරු සමග නම :</label>
-                    <input type="text" name="initials" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="initials" id="initials" class="table-input" placeholder="උදා: එච්. එම්. පෙරේරා" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'current_post')">
                 </div>
 
                 <div class="form-group">
                     <label>III. වර්තමාන සේවා ස්ථානය :</label>
-                    <input type="text" name="current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <select name="current_post" id="current_post" class="dropdown-select" onkeydown="handleEnter(event, 'service_no')">
+                        <option value="" disabled selected>-- තෝරන්න --</option>
+                    </select>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>IV. සේවා අංකය :</label>
-                        <input type="text" name="service_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="service_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'computer_no')">
                     </div>
-                    <div class="form-group">
-                        <label>V. පරිගණක අංකය :</label>
-                        <input type="text" name="computer_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
-                    </div>
-                    <div class="form-group">
-                        <label>වැටුප්පත් අංකය :</label>
-                        <input type="text" name="salary_slip_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
-                    </div>
+                    
+
+<div class="form-group">
+    <label>V. පරිගණක අංකය :</label>
+    <input type="number" name="computer_no" id="computer_no" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'salary_slip_no')">
+</div>
+<div class="form-group">
+    <label>වැටුපත් අංකය :</label>
+    <input type="number" name="salary_slip_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'dob')">
+</div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="dob">VI. උපන් දිනය :</label>
-                        <input type="date" id="dob" name="dob" class="form-input-date">
+                        <input type="date" id="dob" name="dob" class="form-input-date" onkeydown="handleEnter(event, 'permanent_address')">
                     </div>
                     <div class="form-group">
                         <label>VIII. දුරකථන අංකය :</label>
-                         <input type="text" name="phone_no" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                         <input type="tel" name="phone_no" id="phone_no" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'permanent_address')">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>VII. පෞද්ගලික ලිපිනය :</label>
-                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'designation')">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>IX. තනතුර :</label>
-                        <select id="designation" name="designation" class="dropdown-select">
+                        <select id="designation" name="designation" class="dropdown-select" onkeydown="handleEnter(event, 'national_id')">
                             <option value="" disabled selected>-- තෝරන්න --</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>XI. ජාතික හැඳුනුම්පත් අංකය :</label>
-                        <input type="text" name="national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="national_id" id="national_id" class="table-input auto-fill" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'residential_address')">
                     </div>
                 </div>
 
@@ -135,7 +178,7 @@
                     <div class="radio-group">
                         <label class="radio-label"><input type="radio" name="civil_status" value="විවාහක" onclick="handleCivilStatus('විවාහක')"> විවාහක</label>
                         <label class="radio-label"><input type="radio" name="civil_status" value="අවිවාහක" onclick="handleCivilStatus('අවිවාහක')"> අවිවාහක</label>
-                        <label class="radio-label"><input type="radio" name="civil_status" value="දික්කසාදිත" onclick="handleCivilStatus('දික්කසාදිත')"> දික්කසාදිත</label>
+                        <label class="radio-label"><input type="radio" name="civil_status" value="දික්කසාදිත" onclick="handleCivilStatus('දික්කසාදිත')"> දික්කසාද</label>
                         <label class="radio-label"><input type="radio" name="civil_status" value="වැන්දඹු" onclick="handleCivilStatus('වැන්දඹු')"> වැන්දඹු</label>
                     </div>
                 </div>
@@ -151,12 +194,16 @@
                         </div>
                         <div class="form-group indent">
                             <label>ii. වැටුප් සකස් කරන ගිණුම් අංශය :</label>
-                             <input type="text" name="salary_account" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                             <select name="salary_account" class="dropdown-select">
+                                 <option value="" disabled selected>-- තෝරන්න --</option>
+                             </select>
                         </div>
                     </div>
                     <div class="form-group indent">
                         <label>iii. පෞද්ගලික ලිපිගොනු නඩත්තු කරන කාර්යාලය :</label>
-                        <input type="text" name="official_letter_office" class="table-input" style="padding: 10px; font-size: 14px; width: 60%;">
+                        <select name="official_letter_office" class="dropdown-select" style="width: 60%;">
+                            <option value="" disabled selected>-- තෝරන්න --</option>
+                        </select>
                     </div>
                 </div>
 
@@ -180,18 +227,18 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="gov-date">I. රජයේ සේවයට ප්‍රථමයෙන් පත් වූ දිනය :</label>
-                        <input type="date" id="gov-date" name="gov_date" class="form-input-date">
+                        <input type="date" id="gov-date" name="gov_date" class="form-input-date" onchange="setMinDate('gov-date', ['railway-date', 'subdept-date', 'current-post-date', 'confirmed-date'])">
                     </div>
                     <div class="form-group">
                         <label for="railway-date">II. දුම්රිය සේවයට ප්‍රථමයෙන් පත් වූ දිනය :</label>
-                        <input type="date" id="railway-date" name="railway_date" class="form-input-date">
+                        <input type="date" id="railway-date" name="railway_date" class="form-input-date" onchange="setMinDate('railway-date', ['subdept-date', 'current-post-date'])">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="subdept-date">III. උප දෙපාර්තමේන්තුවේ වැඩ භාර ගත් දිනය:</label>
-                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date">
+                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date" onchange="setMinDate('subdept-date', ['current-post-date'])">
                     </div>
                     <div class="form-group">
                         <label for="current-post-date">IV. දැනට දරන තනතුරට පත් වූ දිනය:</label>
@@ -199,70 +246,61 @@
                     </div>
                 </div>
 
-                <div class="form-group full-width">
-                    <label>V. දුම්රිය දෙපාර්තමේන්තුවේ අනෙකුත් උප දෙපාර්තමේන්තු වල සේවය කර තිබේ ද?</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)"> ඔව්</label>
-                        <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)"> නැත</label>
-                    </div>
-                </div>
+               <div class="form-group full-width">
+    <label>V. දුම්රිය දෙපාර්තමේන්තුවේ අනෙකුත් උප දෙපාර්තමේන්තු වල සේවය කර තිබේ ද?</label>
+    <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)"> ඔව්</label>
+        <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)"> නැත</label>
+    </div>
+</div>
 
-                <div id="table-v" class="conditional-table" style="display: none;">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th>උප දෙපාර්තමේන්තුව</th>
-                                <th>සිට</th>
-                                <th>දක්වා</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
-                                <td><input type="date" class="form-input-date"></td>
-                                <td><input type="date" class="form-input-date"></td>
-                            </tr>
-                             <tr>
-                                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
-                                <td><input type="date" class="form-input-date"></td>
-                                <td><input type="date" class="form-input-date"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<div id="table-v" class="conditional-table" style="display: none;">
+    <table class="custom-table" id="table-v-element">
+        <thead>
+            <tr>
+                <th>උප දෙපාර්තමේන්තුව</th>
+                <th>සිට</th>
+                <th>දක්වා</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
+                <td><input type="date" class="form-input-date from-date" onchange="validateToDate(this)"></td>
+                <td><input type="date" class="form-input-date to-date"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="action-btn" onclick="addTableRow('table-v-element')" style="margin-top:10px; background:#0f4c81; color:white; border:none; padding:5px 10px; cursor:pointer;">තවත් පේළියක් එකතු කරන්න</button>
+</div>
 
-                <div class="form-group full-width">
-                    <label>VI. සේවයේ කඩවීම් තිබේ ද? ඇත්නම් පහත දක්වන්න.</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="service_breaks" value="yes" onclick="toggleTable('table-vi', true)"> ඔව්</label>
-                        <label class="radio-label"><input type="radio" name="service_breaks" value="no" onclick="toggleTable('table-vi', false)"> නැත</label>
-                    </div>
-                </div>
+<div class="form-group full-width" style="margin-top:15px;">
+    <label>VI. සේවයේ කඩවීම් තිබේ ද? ඇත්නම් පහත දක්වන්න.</label>
+    <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="service_breaks" value="yes" onclick="toggleTable('table-vi', true)"> ඔව්</label>
+        <label class="radio-label"><input type="radio" name="service_breaks" value="no" onclick="toggleTable('table-vi', false)"> නැත</label>
+    </div>
+</div>
 
-                <div id="table-vi" class="conditional-table" style="display: none;">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th>උප දෙපාර්තමේන්තුව</th>
-                                <th>සිට</th>
-                                <th>දක්වා</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
-                                <td><input type="date" class="form-input-date"></td>
-                                <td><input type="date" class="form-input-date"></td>
-                            </tr>
-                            <tr>
-                                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
-                                <td><input type="date" class="form-input-date"></td>
-                                <td><input type="date" class="form-input-date"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+<div id="table-vi" class="conditional-table" style="display: none;">
+    <table class="custom-table" id="table-vi-element">
+        <thead>
+            <tr>
+                <th>උප දෙපාර්තමේන්තුව</th>
+                <th>සිට</th>
+                <th>දක්වා</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
+                <td><input type="date" class="form-input-date from-date" onchange="validateToDate(this)"></td>
+                <td><input type="date" class="form-input-date to-date"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="action-btn" onclick="addTableRow('table-vi-element')" style="margin-top:10px; background:#0f4c81; color:white; border:none; padding:5px 10px; cursor:pointer;">තවත් පේළියක් එකතු කරන්න</button>
+</div>
                 <div class="button-container" style="margin-top: 20px; text-align: right;">
                     <button type="button" class="nav-btn" onclick="changePage('page-1', 'page-2')">ඊළඟ පිටුව &raquo;</button>
                 </div>
@@ -271,7 +309,7 @@
             <!-- ================= PAGE 2 ================= -->
             <div id="page-2" class="page-section" style="display: none;">
                 
-                <div id="married-sections">
+                 <div id="married-sections">
                     <div class="section-title">3. දරුවන් පිළිබඳ විස්තර</div>
                     
                     <div class="form-group">
@@ -404,10 +442,10 @@
                     <div class="form-group">
                         <label>II. එහි හිමිකරු ඔබ ද?</label>
                         <div class="radio-group" style="margin-top: 5px;">
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes"> ඔව්</label>
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no"> නැත</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes" onclick="toggleOwnerRelationship(false)"> ඔව්</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no" onclick="toggleOwnerRelationship(true)"> නැත</label>
                         </div>
-                        <div style="margin-top: 10px;">
+                        <div id="owner-relationship-group" style="margin-top: 10px; display: none;">
                             <label style="display: block; margin-bottom: 5px;">එසේ නොමැති නම් හිමිකරුට ඇති සම්බන්ධතාවය :</label>
                             <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                         </div>
@@ -473,7 +511,10 @@
                         </div>
                         <div class="form-group">
                             <label>V. ගෙවන මාසික කුලිය :</label>
-                            <input type="text" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <span style="font-weight: bold;">Rs.</span>
+                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0" placeholder="උදා: 15000">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -502,8 +543,8 @@
                         <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
-                        <label for="medical-cert">රජයේ වෛද්‍ය සහතිකය :</label>
-                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf, .jpg, .jpeg, .png">
+                        <label for="medical-cert" title="මෙම ගොනුව ස්වයංක්‍රීයව ඔබගේ ජාතික හැඳුනුම්පත් අංකයෙන් නම් කරනු ලැබේ">රජයේ වෛද්‍ය සහතිකය (PDF පමණි) :</label>
+                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'ජාතික හැඳුනුම්පත් අංකය භාවිතයෙන් rename වේ')">
                     </div>
                     <p class="note-text">(රෝගය, රෝගය සහ එහි ස්වභාවය පැහැදිලි කල රජයේ වෛද්‍ය සහතිකයක් මගින් සනාථ කළ යුතුය)</p>
                 </div>
@@ -557,12 +598,22 @@
                         </div>
                         <div class="form-group">
                             <label>නිවාස වර්ගය :</label>
-                            <input type="text" name="prev_house_type" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <select name="prev_house_type" class="dropdown-select">
+                                <option value="" disabled selected>-- තෝරන්න --</option>
+                                <option value="A වර්ගය">A වර්ගය</option>
+                                <option value="B වර්ගය">B වර්ගය</option>
+                                <option value="C වර්ගය">C වර්ගය</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>ස්ථානය :</label>
-                        <input type="text" name="prev_house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <select name="prev_house_location" class="dropdown-select">
+                            <option value="" disabled selected>-- ස්ථානය තෝරන්න --</option>
+                            <option value="කොළඹ">කොළඹ</option>
+                            <option value="මහනුවර">මහනුවර</option>
+                            <option value="ගාලු">ගාලු</option>
+                        </select>
                     </div>
                 </div>
 
@@ -578,14 +629,7 @@
                     <div style="margin-top: 15px; display: inline-block;">
                         ඉහත සඳහන් කර ඇති තොරතුරු සත්‍ය හා නිවැරදි බවත්, වැරදි ප්‍රකාශයක් කළ බවට තහවුරු වුවහොත්, කෙදිනක හෝ මට විරුද්ධව විනයානුකූලව කටයුතු කරනු ලැබීමට ඉඩ ඇති බවට මම දැනුවත් බවත් මෙයින් ප්‍රකාශ කරමි. මම දැනට වෙනත් දුම්රිය නිවාසයක ප්‍රධාන පදිංචිකරු නොවන බව ද සහතික කරමි. 
                         
-                        <select name="declaration_year" class="dropdown-select inline-select-sm" required>
-                            <option value="" disabled selected>-- වර්ෂය --</option>
-                            <option value="2024">2024</option>
-                            <option value="2025">2025</option>
-                            <option value="2026">2026</option>
-                            <option value="2027">2027</option>
-                            <option value="2028">2028</option>
-                        </select> 
+                       <input type="number" name="declaration_year" class="table-input inline-select-sm" placeholder="වර්ෂය" min="2000" max="2100" style="width: 90px; padding: 5px; display: inline-block;" required>
                         වර්ෂයේ 
                         
                         <select name="declaration_month" class="dropdown-select inline-select-sm" required>
@@ -606,8 +650,8 @@
                         මාසයට අදාළ වැටුප් පත්‍රිකාවේ ඡායා පිටපතක් අමුණා ඇත.
                         
                         <div class="form-group" style="margin-top: 10px;">
-                            <label for="salary-cert"> වැටුප් පත්‍රිකාවේ ඡායා පිටපත :</label>
-                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf, .jpg, .jpeg, .png">
+                            <label for="salary-cert" title="මෙම ගොනුව ස්වයංක්‍රීයව ඔබගේ වැටුපත් අංකයෙන් rename වේ"> වැටුප් පත්‍රිකාවේ ඡායා පිටපත (PDF පමණි) :</label>
+                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'වැටුපත් අංකය භාවිතයෙන් rename වේ')">
                         </div>
                     </div>
                 </div>
@@ -617,14 +661,12 @@
                         <label for="page3-date">දිනය :</label>
                         <input type="date" id="page3-date" name="page3_date" class="form-input-date">
                     </div>
-                    <!-- අයදුම්කරුගේ අත්සන (මුද්‍රණයේදී පමණි) -->
                     <div class="signature-box print-only-element" style="text-align: right; margin-top: 20px;">
                         <div style="border-bottom: 1px dotted #333; width: 250px; display: inline-block; margin-bottom: 5px;"></div>
                         <p style="margin: 0; font-size: 14px;">අයදුම්කරුගේ අත්සන</p>
                     </div>
                 </div>
 
-                <!-- Print Approval Section -->
                 <div id="print-approval-section">
                     <fieldset style="border: 1px solid #ccc; padding: 20px; border-radius: 5px;">
                         <legend style="font-weight: bold; color: #0f4c81; padding: 0 10px;">
@@ -649,7 +691,6 @@
                             <textarea rows="2" style="width: 100%; padding: 8px; border: 1px solid #ccc;" readonly></textarea>
                         </div>
 
-                        <!-- නියෝජ්‍ය අධිකාරී කොටසට දිනය සහ අත්සන එකතු කිරීම -->
                         <div style="display: flex; justify-content: space-between; margin-top: 20px; align-items: flex-end;">
                             <div>
                                 <label style="display: block; margin-bottom: 5px;">දිනය :</label>
@@ -663,7 +704,6 @@
                     </fieldset>
                 </div>
 
-                <!-- Clerk Approval Section -->
                 <div class="clerk-approval-section">
                     <fieldset style="border: 1px solid #ccc; padding: 20px; border-radius: 5px; margin-top: 20px;">
                         <legend style="font-weight: bold; color: #0f4c81; padding: 0 10px;">
@@ -708,7 +748,6 @@
                             <textarea name="clerk_rec_other_notes" rows="2" class="table-input" style="margin-top: 5px; width: 100%;"></textarea>
                         </div>
 
-                        <!-- කැබිනට් අංකය සහ විෂය ලිපිකරුගේ අත්සන එකතු කිරීම -->
                         <div style="display: flex; justify-content: space-between; margin-top: 20px; align-items: flex-end;">
                             <div>
                                 <label style="display: block; margin-bottom: 5px;">කැබිනට් අංකය :</label>
@@ -722,7 +761,6 @@
                     </fieldset>
                 </div>
 
-                <!-- Buttons Area -->
                 <div class="button-container space-between" style="margin-top: 25px; display: flex; justify-content: space-between;">
                     <button type="button" class="nav-btn" onclick="changePage('page-3', 'page-2')">&laquo; පසුපසට</button>
                     <div>
@@ -735,55 +773,102 @@
         </form>
     </div>
 
-    <!-- JavaScript -->
     <script>
         let currentPage = 1;
+
+        window.onload = function() {
+            const userData = {
+                full_name: "අමරසිරි ගුණවර්ධන",
+                computer_no: "45892",
+                national_id: "882341234V",
+                phone_no: "0712345678"
+            };
+            
+            document.getElementById('full_name').value = userData.full_name;
+            document.getElementById('computer_no').value = userData.computer_no;
+            document.getElementById('national_id').value = userData.national_id;
+            document.getElementById('phone_no').value = userData.phone_no;
+        };
+
+        function updateHouseNumbers() {
+            const location = document.getElementById('location-dropdown').value;
+            const houseDropdown = document.getElementById('house-number-dropdown');
+            houseDropdown.innerHTML = '<option value="" disabled selected>-- නිවාස අංකය තෝරන්න --</option>';
+            
+            let houses = [];
+            if(location === 'කොළඹ') {
+                houses = ['A-101', 'A-102', 'B-205'];
+            } else if(location === 'මහනුවර') {
+                houses = ['K-01', 'K-02'];
+            } else if(location === 'ගාලු') {
+                houses = ['G-11', 'G-12'];
+            }
+            
+            houses.forEach(h => {
+                let opt = document.createElement('option');
+                opt.value = h;
+                opt.textContent = h;
+                houseDropdown.appendChild(opt);
+            });
+        }
+
+        function handleEnter(event, nextFieldId) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const nextField = document.getElementsByName(nextFieldId)[0] || document.getElementById(nextFieldId);
+                if (nextField) {
+                    nextField.focus();
+                }
+            }
+        }
+
+        function setMinDate(fromId, targetIds) {
+            const val = document.getElementById(fromId).value;
+            targetIds.forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.min = val;
+            });
+        }
+
+        function toggleOwnerRelationship(show) {
+            document.getElementById('owner-relationship-group').style.display = show ? 'block' : 'none';
+        }
+
+        function showRenameHint(element, message) {
+            element.title = message;
+        }
 
         function changePage(currentId, targetId) {
             document.getElementById(currentId).style.display = 'none';
             document.getElementById(targetId).style.display = 'block';
-            
-            if(targetId === 'page-1') currentPage = 1;
-            else if(targetId === 'page-2') currentPage = 2;
-            else if(targetId === 'page-3') currentPage = 3;
-
             window.scrollTo(0, 0);
         }
 
-        function handleTopBack() {
-            window.location.href = 'language_dashboard.html';
-            if (currentPage === 2) {
-                changePage('page-2', 'page-1');
-            } else if (currentPage === 3) {
-                changePage('page-3', 'page-2');
-            } else {
-                alert('ඔබ සිටින්නේ පළමු පිටුවේය.');
-            }
+        function toggleTable(tableId, show) {
+            document.getElementById(tableId).style.display = show ? "block" : "none";
         }
 
-        function toggleTable(tableId, show) {
-            const tableDiv = document.getElementById(tableId);
-            tableDiv.style.display = show ? "block" : "none";
+        function addTableRow(tableId) {
+            const table = document.getElementById(tableId).getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td><select class="dropdown-select table-select"><option value="" disabled selected>-- තෝරන්න --</option></select></td>
+                <td><input type="date" class="form-input-date"></td>
+                <td><input type="date" class="form-input-date"></td>
+            `;
         }
 
         function toggleContainer(containerId, show) {
             const container = document.getElementById(containerId);
-            if (show) {
-                container.style.display = 'block';
-                if(containerId === 'children-details') {
-                    const tbody = document.getElementById('children-tbody');
-                    if(tbody.rows.length === 0) {
-                        addChildRow();
-                    }
-                }
-            } else {
-                container.style.display = 'none';
+            container.style.display = show ? 'block' : 'none';
+            if(containerId === 'children-details' && show) {
+                const tbody = document.getElementById('children-tbody');
+                if(tbody.rows.length === 0) addChildRow();
             }
         }
 
         function handleCivilStatus(status) {
-            const marriedSections = document.getElementById('married-sections');
-            marriedSections.style.display = 'block';
+            document.getElementById('married-sections').style.display = 'block';
         }
 
         function printApplication() {
@@ -793,7 +878,6 @@
         function addChildRow() {
             const tbody = document.getElementById('children-tbody');
             const newRow = tbody.insertRow();
-            
             newRow.innerHTML = `
                 <td><input type="text" class="table-input"></td>
                 <td>
@@ -824,17 +908,10 @@
             const count = parseInt(document.getElementById('child-count-input').value) || 0;
             const tbody = document.getElementById('children-tbody');
             const currentRowCount = tbody.rows.length;
-            
             if (count > currentRowCount) {
-                const diff = count - currentRowCount;
-                for (let i = 0; i < diff; i++) {
-                    addChildRow();
-                }
+                for (let i = 0; i < count - currentRowCount; i++) addChildRow();
             } else if (count < currentRowCount && count >= 0) {
-                const diff = currentRowCount - count;
-                for (let i = 0; i < diff; i++) {
-                    tbody.deleteRow(tbody.rows.length - 1);
-                }
+                for (let i = 0; i < currentRowCount - count; i++) tbody.deleteRow(tbody.rows.length - 1);
             }
         }
 
@@ -844,9 +921,29 @@
             document.getElementById('child-count-input').value = document.getElementById('children-tbody').rows.length;
         }
 
+        // From දිනය වෙනස් වූ විට To දිනය පාලනය කිරීම
+function validateToDate(fromInput) {
+    const row = fromInput.closest('tr');
+    const toInput = row.querySelector('.to-date');
+    
+    if (fromInput.value) {
+        // From දිනට වඩා පසු දිනක් පමණක් To දිනට ඇතුළත් කළ හැකි වන සේ min අගය ලබා දීම
+        toInput.min = fromInput.value;
+        
+        // දැනට To දිනට වැරදි දිනක් දමා තිබේ නම් එය මකා දැමීම
+        if (toInput.value && toInput.value < fromInput.value) {
+            toInput.value = '';
+        }
+    } else {
+        toInput.removeAttribute('min');
+    }
+}
+
         document.getElementById('railway-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('අයදුම්පත සාර්ථකව යොමු කරන ලදී!');
+            const appNo = "SLR/HQ/" + Math.floor(100000 + Math.random() * 900000);
+            // සාර්ථකව Submit වූ විට වෙනත් success.html පිටුව වෙත යොමු කිරීම (අංකය සමඟ)
+            window.location.href = `success.html?appNo=${appNo}`;
         });
     </script>
 </body>
