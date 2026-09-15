@@ -9,39 +9,28 @@
 <body>
 
     <style>
-    /* අංක පෙට්ටිවල ඇති arrow සලකුණු ඉවත් කිරීම සඳහා */
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
-
-    /* අංක පෙට්ටියේ arrow සලකුණු (spinners) නැවත පෙන්වීම සඳහා */
+    /* අංක පෙට්ටියට arrows (spinners) නිවැරදිව පෙන්වීම සඳහා */
     #child-count-input::-webkit-outer-spin-button,
     #child-count-input::-webkit-inner-spin-button {
-        -webkit-appearance: inner-spin-button !important;
+        -webkit-appearance: auto !important;
         opacity: 1 !important;
     }
     #child-count-input {
         -moz-appearance: number-input !important;
     }
     
-    /* Clear බොත්තම සඳහා කුඩා මෝස්තරයක් */
+    /* Clear බොත්තම සඳහා මෝස්තරය */
     .clear-row-btn {
-        background: #e74c3c;
+        background: #f39c12;
         color: white;
         border: none;
-        padding: 5px 8px;
+        padding: 6px 12px;
         cursor: pointer;
-        border-radius: 3px;
-        font-size: 12px;
-        margin-left: 5px;
+        border-radius: 4px;
+        font-size: 13px;
     }
     .clear-row-btn:hover {
-        background: #c0392b;
+        background: #d68910;
     }
 
 </style>
@@ -142,7 +131,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="dob">VI. උපන් දිනය :</label>
-                        <input type="date" id="dob" name="dob" class="form-input-date" onkeydown="handleEnter(event, 'permanent_address')">
+                        <input type="date" id="dob" name="dob" class="form-input-date" onkeydown="handleEnter(event, 'phone_no')">
                     </div>
                     <div class="form-group">
                         <label>VIII. දුරකථන අංකය :</label>
@@ -170,16 +159,16 @@
 
                 <div class="form-group">
                     <label>X. රාජකාරි ලිපිනය :</label>
-                    <input type="text" name="residential_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="residential_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'civil_status')">
                 </div>
 
                 <div class="form-group full-width">
                     <label>XII. සිවිල් තත්වය :</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="civil_status" value="විවාහක" onclick="handleCivilStatus('විවාහක')"> විවාහක</label>
-                        <label class="radio-label"><input type="radio" name="civil_status" value="අවිවාහක" onclick="handleCivilStatus('අවිවාහක')"> අවිවාහක</label>
-                        <label class="radio-label"><input type="radio" name="civil_status" value="දික්කසාදිත" onclick="handleCivilStatus('දික්කසාදිත')"> දික්කසාද</label>
-                        <label class="radio-label"><input type="radio" name="civil_status" value="වැන්දඹු" onclick="handleCivilStatus('වැන්දඹු')"> වැන්දඹු</label>
+                        <label class="radio-label"><input type="radio" name="civil_status" value="විවාහක" onclick="handleCivilStatus('විවාහක')" onkeydown="handleEnter(event, 'sub_department')"> විවාහක</label>
+                        <label class="radio-label"><input type="radio" name="civil_status" value="අවිවාහක" onclick="handleCivilStatus('අවිවාහක')" onkeydown="handleEnter(event, 'sub_department')"> අවිවාහක</label>
+                        <label class="radio-label"><input type="radio" name="civil_status" value="දික්කසාදිත" onclick="handleCivilStatus('දික්කසාදිත')" onkeydown="handleEnter(event, 'sub_department')"> දික්කසාද</label>
+                        <label class="radio-label"><input type="radio" name="civil_status" value="වැන්දඹු" onclick="handleCivilStatus('වැන්දඹු')" onkeydown="handleEnter(event, 'sub_department')"> වැන්දඹු</label>
                     </div>
                 </div>
 
@@ -188,20 +177,20 @@
                     <div class="form-row">
                         <div class="form-group indent">
                             <label>i. උප දෙපාර්තමේන්තුව :</label>
-                            <select name="sub_department" class="dropdown-select inline-select">
+                            <select name="sub_department" class="dropdown-select inline-select" onkeydown="handleEnter(event, 'salary_account')">
                                 <option value="" disabled selected>-- තෝරන්න --</option>
                             </select>
                         </div>
                         <div class="form-group indent">
                             <label>ii. වැටුප් සකස් කරන ගිණුම් අංශය :</label>
-                             <select name="salary_account" class="dropdown-select">
+                             <select name="salary_account" class="dropdown-select" onkeydown="handleEnter(event, 'official_letter_office')">
                                  <option value="" disabled selected>-- තෝරන්න --</option>
                              </select>
                         </div>
                     </div>
                     <div class="form-group indent">
                         <label>iii. පෞද්ගලික ලිපිගොනු නඩත්තු කරන කාර්යාලය :</label>
-                        <select name="official_letter_office" class="dropdown-select" style="width: 60%;">
+                        <select name="official_letter_office" class="dropdown-select" style="width: 60%;" onkeydown="handleEnter(event, 'is_permanent')">
                             <option value="" disabled selected>-- තෝරන්න --</option>
                         </select>
                     </div>
@@ -212,45 +201,45 @@
                 <div class="form-group">
                     <label>ඔබගේ සේවය ස්ථිර ද?</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="is_permanent" value="yes" onclick="toggleContainer('permanent-date-group', true)"> ඔව්</label>
-                        <label class="radio-label"><input type="radio" name="is_permanent" value="no" onclick="toggleContainer('permanent-date-group', false)"> නැත</label>
+                        <label class="radio-label"><input type="radio" name="is_permanent" value="yes" onclick="toggleContainer('permanent-date-group', true)" onkeydown="handleEnter(event, 'confirmed-date')"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="is_permanent" value="no" onclick="toggleContainer('permanent-date-group', false)" onkeydown="handleEnter(event, 'gov-date')"> නැත</label>
                     </div>
                 </div>
 
                 <div id="permanent-date-group" class="form-row" style="display: none;">
                     <div class="form-group">
                         <label for="confirmed-date">සේවය ස්ථිර වූ දිනය :</label>
-                        <input type="date" id="confirmed-date" name="confirmed_date" class="form-input-date">
+                        <input type="date" id="confirmed-date" name="confirmed_date" class="form-input-date" onkeydown="handleEnter(event, 'gov-date')">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="gov-date">I. රජයේ සේවයට ප්‍රථමයෙන් පත් වූ දිනය :</label>
-                        <input type="date" id="gov-date" name="gov_date" class="form-input-date" onchange="setMinDate('gov-date', ['railway-date', 'subdept-date', 'current-post-date', 'confirmed-date'])">
+                        <input type="date" id="gov-date" name="gov_date" class="form-input-date" onchange="setMinDate('gov-date', ['railway-date', 'subdept-date', 'current-post-date', 'confirmed-date'])" onkeydown="handleEnter(event, 'railway-date')">
                     </div>
                     <div class="form-group">
                         <label for="railway-date">II. දුම්රිය සේවයට ප්‍රථමයෙන් පත් වූ දිනය :</label>
-                        <input type="date" id="railway-date" name="railway_date" class="form-input-date" onchange="setMinDate('railway-date', ['subdept-date', 'current-post-date'])">
+                        <input type="date" id="railway-date" name="railway_date" class="form-input-date" onchange="setMinDate('railway-date', ['subdept-date', 'current-post-date'])" onkeydown="handleEnter(event, 'subdept-date')">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="subdept-date">III. උප දෙපාර්තමේන්තුවේ වැඩ භාර ගත් දිනය:</label>
-                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date" onchange="setMinDate('subdept-date', ['current-post-date'])">
+                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date" onchange="setMinDate('subdept-date', ['current-post-date'])" onkeydown="handleEnter(event, 'current-post-date')">
                     </div>
                     <div class="form-group">
                         <label for="current-post-date">IV. දැනට දරන තනතුරට පත් වූ දිනය:</label>
-                        <input type="date" id="current-post-date" name="current_post_date" class="form-input-date">
+                        <input type="date" id="current-post-date" name="current_post_date" class="form-input-date" onkeydown="handleEnter(event, 'other_subdept')">
                     </div>
                 </div>
 
                <div class="form-group full-width">
     <label>V. දුම්රිය දෙපාර්තමේන්තුවේ අනෙකුත් උප දෙපාර්තමේන්තු වල සේවය කර තිබේ ද?</label>
     <div class="radio-group">
-        <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)"> ඔව්</label>
-        <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)"> නැත</label>
+        <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)" onkeydown="handleEnter(event, 'table-v')" > ඔව්</label>
+        <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)" onkeydown="handleEnter(event, 'service_breaks')"> නැත</label>
     </div>
 </div>
 
@@ -277,7 +266,7 @@
 <div class="form-group full-width" style="margin-top:15px;">
     <label>VI. සේවයේ කඩවීම් තිබේ ද? ඇත්නම් පහත දක්වන්න.</label>
     <div class="radio-group">
-        <label class="radio-label"><input type="radio" name="service_breaks" value="yes" onclick="toggleTable('table-vi', true)"> ඔව්</label>
+        <label class="radio-label"><input type="radio" name="service_breaks" value="yes" onclick="toggleTable('table-vi', true)" onkeydown="handleEnter(event, 'table-vi')"> ඔව්</label>
         <label class="radio-label"><input type="radio" name="service_breaks" value="no" onclick="toggleTable('table-vi', false)"> නැත</label>
     </div>
 </div>
@@ -316,48 +305,47 @@
                         <label>I. දරුවන් සිටීනම් ඔබ සමඟ ද යන වග :</label>
                         <div class="radio-group">
                             <label class="radio-label">
-                                <input type="radio" name="has_children" value="yes" onclick="toggleContainer('children-details', true)"> ඔව්
+                                <input type="radio" name="has_children" value="yes" onclick="toggleContainer('children-details', true)" onkeydown="handleEnter(event, 'children-details')"> ඔව්
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="has_children" value="no" onclick="toggleContainer('children-details', false)"> නැත
+                                <input type="radio" name="has_children" value="no" onclick="toggleContainer('children-details', false)" onkeydown="handleEnter(event, 'has_spouse')"> නැත
                             </label>
                         </div>
                     </div>
 
                     <div id="children-details" style="display: none;">
-                        <div class="form-group">
-                            <label for="child-count-input">දරුවන් සංඛ්‍යාව ඇතුළත් කරන්න:</label>
-                            <div class="action-row" style="display: flex; gap: 10px; align-items: center;">
-                                <input type="number" id="child-count-input" min="1" max="10" class="form-input" oninput="generateChildRows()">
+    <div class="form-group">
+        <label for="child-count-input">දරුවන් සංඛ්‍යාව ඇතුළත් කරන්න:</label>
+        <div class="action-row" style="display: flex; gap: 10px; align-items: center;">
+            <input type="number" id="child-count-input" min="1" max="10" step="1" class="form-input" oninput="generateChildRows()" style="width: 120px; padding: 5px;">
+        </div>
+    </div>
 
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>II. දරුවන් පිළිබඳ විස්තර :</label>
-                            <table class="custom-table" id="children-table">
-                                <thead>
-                                    <tr>
-                                        <th>සම්පූර්ණ නම</th>
-                                        <th>ස්ත්‍රී / පුරුෂ භාවය</th>
-                                        <th>උපන් දිනය</th>
-                                        <th>සිවිල් තත්වය</th>
-                                        <th>ඉවත් කරන්න</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="children-tbody"></tbody>
-                            </table>                                                                                                     
-                        </div>
-                        <p class="note-text">(රජයේ රැකියාවල නියුතු දරුවකු පදිංචි කර ගැනීමට බලාපොරොත්තු වන්නේ නම්, ඒ සඳහා විශේෂ අවසරයක් ලබා ගත යුතුය.)</p>
-                    </div>
+    <div class="form-group">
+        <label>II. දරුවන් පිළිබඳ විස්තර :</label>
+        <table class="custom-table" id="children-table">
+            <thead>
+                <tr>
+                    <th>සම්පූර්ණ නම</th>
+                    <th>ස්ත්‍රී / පුරුෂ භාවය</th>
+                    <th>උපන් දිනය</th>
+                    <th>සිවිල් තත්වය</th>
+                    <th>ක්‍රියාමාර්ග</th> <!-- ඉවත් කිරීමේ තීරුව වෙනුවට පොදු තීරුවක් -->
+                </tr>
+            </thead>
+            <tbody id="children-tbody"></tbody>
+        </table>                                                                                                                                              
+    </div>
+    <p class="note-text">(රජයේ රැකියාවල නියුතු දරුවකු පදිංචි කර ගැනීමට බලාපොරොත්තු වන්නේ නම්, ඒ සඳහා විශේෂ අවසරයක් ලබා ගත යුතුය.)</p>
+</div>
 
                     <div class="section-title">4. කලත්‍රයා (භාර්යාව / ස්වාමිපුරුෂයා) පිළිබඳ විස්තර </div>
                     
                     <div class="form-group full-width">
                         <label>කලත්‍රයා සිටීනම් ඔබ සමඟ ද යන වග :</label>
                         <div class="radio-group">
-                            <label class="radio-label"><input type="radio" name="has_spouse" value="yes" onclick="toggleContainer('spouse-details', true)"> ඔව්</label>
-                            <label class="radio-label"><input type="radio" name="has_spouse" value="no" onclick="toggleContainer('spouse-details', false)"> නැත</label>
+                            <label class="radio-label"><input type="radio" name="has_spouse" value="yes" onclick="toggleContainer('spouse-details', true)" onkeydown="handleEnter(event, 'spouse_name')"> ඔව්</label>
+                            <label class="radio-label"><input type="radio" name="has_spouse" value="no" onclick="toggleContainer('spouse-details', false)" onkeydown="handleEnter(event, 'permanent_address')"> නැත</label>
                         </div>
                     </div>
 
@@ -365,24 +353,24 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>I. සම්පූර්ණ නම :</label>
-                                 <input type="text" name="spouse_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                 <input type="text" name="spouse_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_national_id')">
                             </div>
                             <div class="form-group">
                                 <label>II. ජාතික හැඳුනුම්පත් අංකය :</label>
-                                <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_occupation')">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>III. රැකියාව :</label>
-                             <input type="text" name="spouse_occupation" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                             <input type="text" name="spouse_occupation" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_moving')">
                         </div>
 
                         <div class="form-group">
                             <label>IV. ඔබට දුම්රිය නිවාසයක් හිමි වුවහොත්, කලත්‍රයා එහි පදිංචියට පැමිණෙන්නේද / නැද්ද යන වග :</label>
                             <div class="radio-group" style="margin-top: 5px;">
-                                <label class="radio-label"><input type="radio" name="spouse_moving" value="පැමිණේ"> පැමිණේ</label>
-                                <label class="radio-label"><input type="radio" name="spouse_moving" value="පැමිණෙන්නේ නැත"> පැමිණෙන්නේ නැත</label>
+                                <label class="radio-label"><input type="radio" name="spouse_moving" value="පැමිණේ" onkeydown="handleEnter(event, 'spouse_gov_job')"> පැමිණේ</label>
+                                <label class="radio-label"><input type="radio" name="spouse_moving" value="පැමිණෙන්නේ නැත" onkeydown="handleEnter(event, 'spouse_gov_job')"> පැමිණෙන්නේ නැත</label>
                             </div>
                         </div>
 
@@ -390,9 +378,9 @@
                         
                         <div class="form-group full-width">
                             <label>කලත්‍රයා රජයේ රැකියාවක නියුතු වේද?</label>
-                            <div class="radio-group">
-                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)"> ඔව්</label>
-                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)"> නැත</label>
+                            <div class="radio-group" onkeydown="handleEnter(event, 'gov-spouse-details')">
+                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)" onkeydown="handleEnter(event, 'gov_department')"> ඔව්</label>
+                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)" onkeydown="handleEnter(event, 'permanent-address')"> නැත</label>
                             </div>
                         </div>
 
@@ -400,32 +388,32 @@
                             <div class="form-row" style="margin-top: 10px;">
                                 <div class="form-group">
                                     <label>I. සේවය කරන දෙපාර්තමේන්තුව :</label>
-                                    <input type="text" name="spouse_department" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                    <input type="text" name="spouse_department" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_service_number')">
                                 </div>
                                 <div class="form-group">
                                     <label>සේවා අංකය :</label>
-                                    <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                    <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_position')">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>II. තනතුර :</label>
-                                <input type="text" name="spouse_position" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_position" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_institution')">
                             </div>
 
                             <div class="form-group">
                                 <label>III. ආයතන ප්‍රධානියා හා ඔහුගේ ලිපිනය:</label>
-                                <input type="text" name="spouse_institution" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_institution" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_current_post')">
                             </div>
 
                             <div class="form-group">
                                 <label>IV. දැනට සේවය කරනු ලබන ස්ථානය හා ලිපිනය :</label>
-                                <input type="text" name="spouse_current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_annual_salary')">
                             </div>
 
                             <div class="form-group">
                                 <label>V. දැනට ලබන වාර්ෂික වැටුප :</label>
-                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'permanent_address')">
                             </div>
                         </div>
                     </div>
@@ -435,24 +423,24 @@
                 
                 <div class="form-group">
                     <label>I. ස්ථිර පදිංචි ස්ථානයේ ලිපිනය :</label>
-                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'owner_is_self')">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>II. එහි හිමිකරු ඔබ ද?</label>
-                        <div class="radio-group" style="margin-top: 5px;">
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes" onclick="toggleOwnerRelationship(false)"> ඔව්</label>
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no" onclick="toggleOwnerRelationship(true)"> නැත</label>
+                        <div class="radio-group" style="margin-top: 5px;" onkeydown="handleEnter(event, 'owner_relationship')">
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes" onclick="toggleOwnerRelationship(false)" onkeydown="handleEnter(event, 'commute_from_home')"> ඔව්</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no" onclick="toggleOwnerRelationship(true)" onkeydown="handleEnter(event, 'owner_relationship')"> නැත</label>
                         </div>
                         <div id="owner-relationship-group" style="margin-top: 10px; display: none;">
                             <label style="display: block; margin-bottom: 5px;">එසේ නොමැති නම් හිමිකරුට ඇති සම්බන්ධතාවය :</label>
-                            <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'commute_from_home')">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>III. ඔබ රාජකාරියට පැමිණෙන්නේ එහි සිට ද?</label>
-                        <div class="radio-group" style="margin-top: 5px;">
+                        <div class="radio-group" style="margin-top: 5px;" onkeydown="handleEnter(event, 'permanent-district')">
                             <label class="radio-label"><input type="radio" name="commute_from_home" value="yes"> ඔව්</label>
                             <label class="radio-label"><input type="radio" name="commute_from_home" value="no"> නැත</label>
                         </div>
@@ -461,28 +449,28 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="permanent-district">IV. ස්ථිර පදිංචි දිස්ත්‍රික්කය :</label>
-                        <select id="permanent-district" name="permanent_district" class="dropdown-select">
+                        <label for="permanent-district" >IV. ස්ථිර පදිංචි දිස්ත්‍රික්කය :</label>
+                        <select id="permanent-district" name="permanent_district" class="dropdown-select" onkeydown="handleEnter(event, 'nearest-city-distance')">
                             <option value="" disabled selected>-- තෝරන්න --</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>V. ආසන්නතම ප්‍රධාන නගරය හා ඊට ඇති දුර ප්‍රමාණය :</label>
-                        <input type="number" id="nearest-city-distance" name="nearest_city_distance" class="table-input" min="0" step="1" placeholder="(කි.මී.)">
+                        <input type="number" id="nearest-city-distance" name="nearest_city_distance" class="table-input" min="0" step="1" placeholder="(කි.මී.)" onkeydown="handleEnter(event, 'branch-to-work-distance')">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>VI. ශාඛා ලිපියක සිට සේවා ස්ථානයට ඇති දුර ප්‍රමාණය :</label>
-                    <input type="number" id="branch-to-work-distance" name="branch_to_work_distance" class="table-input" min="0" step="1" style="max-width: 200px; margin-left: 10px;" placeholder="(කි.මී.)">
+                    <input type="number" id="branch-to-work-distance" name="branch_to_work_distance" class="table-input" min="0" step="1" style="max-width: 200px; margin-left: 10px;" placeholder="(කි.මී.)" onkeydown="handleEnter(event, 'is_rented_house')">
                 </div>
 
                 <div class="section-title">7. දැනට කුලී නිවාසයක පදිංචි වී සිටී නම් </div>
                 
                 <div class="form-group full-width">
                     <label>දැනට කුලී නිවාසයක පදිංචි වී සිටී ද?</label>
-                    <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="is_rented_house" value="yes" onclick="toggleContainer('rented-house-details', true)"> ඔව්</label>
+                    <div class="radio-group" onkeydown="handleEnter(event, 'rented-house-details')">
+                        <label class="radio-label"><input type="radio" name="is_rented_house" value="yes" onclick="toggleContainer('rented-house-details', true)" onkeydown="handleEnter(event, 'house_owner')"> ඔව්</label>
                         <label class="radio-label"><input type="radio" name="is_rented_house" value="no" onclick="toggleContainer('rented-house-details', false)"> නැත</label>
                     </div>
                 </div>
@@ -491,29 +479,29 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>I. එහි අයිතිකරු :</label>
-                            <input type="text" name="house_owner" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <input type="text" name="house_owner" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'house_location')">
                         </div>
                         <div class="form-group">
                             <label>II. පිහිටි ස්ථානය :</label>
-                             <input type="text" name="house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                             <input type="text" name="house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'rented_address')">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>III. එහි ලිපිනය :</label>
-                         <input type="text" name="rented_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                         <input type="text" name="rented_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'rent-date')">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="rent-date">IV. එහි පදිංචියට ගිය දිනය :</label>
-                            <input type="date" id="rent-date" name="rent_date" class="form-input-date">
+                            <input type="date" id="rent-date" name="rent_date" class="form-input-date" onkeydown="handleEnter(event, 'monthly_rent')">
                         </div>
                         <div class="form-group">
                             <label>V. ගෙවන මාසික කුලිය :</label>
                             <div style="display: flex; align-items: center; gap: 5px;">
                                 <span style="font-weight: bold;">Rs.</span>
-                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0" placeholder="උදා: 15000">
+                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0" placeholder="උදා: 15000" >
                             </div>
                         </div>
                     </div>
@@ -532,19 +520,19 @@
                 
                 <div class="form-group full-width">
                     <div class="radio-group" style="margin-bottom: 10px;">
-                        <label class="radio-label"><input type="radio" name="has_disability" value="yes" onclick="toggleContainer('disability-details', true)"> ඔව්</label>
-                        <label class="radio-label"><input type="radio" name="has_disability" value="no" onclick="toggleContainer('disability-details', false)"> නැත</label>
+                        <label class="radio-label"><input type="radio" name="has_disability" value="yes" onclick="toggleContainer('disability-details', true)" onkeydown="handleEnter(event, 'disability-details')"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="has_disability" value="no" onclick="toggleContainer('disability-details', false)" onkeydown="handleEnter(event, 'quarter_number')"> නැත</label>
                     </div>
                 </div>
 
                 <div id="disability-details" style="display: none;">
                     <div class="form-group">
                         <label>රෝගය සහ එහි ස්වභාවය පිළිබඳ විස්තර :</label>
-                        <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'medical-cert')">
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label for="medical-cert" title="මෙම ගොනුව ස්වයංක්‍රීයව ඔබගේ ජාතික හැඳුනුම්පත් අංකයෙන් නම් කරනු ලැබේ">රජයේ වෛද්‍ය සහතිකය (PDF පමණි) :</label>
-                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'ජාතික හැඳුනුම්පත් අංකය භාවිතයෙන් rename වේ')">
+                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'ජාතික හැඳුනුම්පත් අංකය භාවිතයෙන් rename කරන්න')" onmouseout="hideRenameHint(this)" onkeydown="handleEnter(event, 'quarter_number')">
                     </div>
                     <p class="note-text">(රෝගය, රෝගය සහ එහි ස්වභාවය පැහැදිලි කල රජයේ වෛද්‍ය සහතිකයක් මගින් සනාථ කළ යුතුය)</p>
                 </div>
@@ -554,39 +542,39 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>I. එහි අංකය :</label>
-                        <input type="text" name="quarter_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="quarter_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'moved-out-date')">
                     </div>
                     <div class="form-group">
                         <label for="moved-out-date">ඉවත් වූ දිනය :</label>
-                        <input type="date" id="moved-out-date" name="moved_out_date" class="form-input-date">
+                        <input type="date" id="moved-out-date" name="moved_out_date" class="form-input-date" onkeydown="handleEnter(event, 'reason_for_moving_out')">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>ඉවත් වීමට හේතුව :</label>
-                    <input type="text" name="reason_for_moving_out" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="reason_for_moving_out" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'is_rented_house')">
                 </div>
 
                 <div class="form-group full-width">
                     <label>II. මීට පෙර ඔබ වෙනුවෙන් වෙන් කරන ලද දුම්රිය නිවාසයක් ප්‍රතික්ෂේප කර තිබේ ද?</label>
                     <div class="radio-group" style="margin-top: 5px; margin-bottom: 10px;">
-                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="yes" onclick="toggleContainer('rejected-details', true)"> ඔව්</label>
-                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="no" onclick="toggleContainer('rejected-details', false)"> නැත</label>
+                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="yes" onclick="toggleContainer('rejected-details', true)" onkeydown="handleEnter(event, 'rejected-details')"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="no" onclick="toggleContainer('rejected-details', false)" onkeydown="handleEnter(event, 'is_rented_house')"> නැත</label>
                     </div>
                 </div>
 
                 <div id="rejected-details" style="display: none;">
                     <div class="form-group">
                         <label>එසේ නම්, ඒ පිළිබඳ විස්තර :</label>
-                        <input type="text" name="rejected_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="rejected_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'applied-date-prev')">
                     </div>
                 </div>
 
                 <div class="form-group full-width">
                     <label>III. මීට පෙර දුම්රිය නිවාසයක් ලබා ගැනීම සඳහා අයදුම්පතක් ඉදිරිපත් කර තිබේ ද?</label>
                     <div class="radio-group" style="margin-top: 5px;">
-                        <label class="radio-label"><input type="radio" name="applied_before" value="yes" onclick="toggleContainer('applied-before-details', true)"> ඔව්</label>
-                        <label class="radio-label"><input type="radio" name="applied_before" value="no" onclick="toggleContainer('applied-before-details', false)"> නැත</label>
+                        <label class="radio-label"><input type="radio" name="applied_before" value="yes" onclick="toggleContainer('applied-before-details', true)" onkeydown="handleEnter(event, 'applied-date-prev')"> ඔව්</label>
+                        <label class="radio-label"><input type="radio" name="applied_before" value="no" onclick="toggleContainer('applied-before-details', false)" onkeydown="handleEnter(event, 'declaration_year')"> නැත</label>
                     </div>
                 </div>
 
@@ -594,25 +582,19 @@
                     <div class="form-row" style="margin-top: 10px;">
                         <div class="form-group">
                             <label for="applied-date-prev">අයදුම් කළ දිනය :</label>
-                            <input type="date" id="applied-date-prev" name="applied_date_prev" class="form-input-date">
+                            <input type="date" id="applied-date-prev" name="applied_date_prev" class="form-input-date" onkeydown="handleEnter(event, 'prev_house_type')">
                         </div>
                         <div class="form-group">
                             <label>නිවාස වර්ගය :</label>
-                            <select name="prev_house_type" class="dropdown-select">
+                            <select name="prev_house_type" class="dropdown-select" onkeydown="handleEnter(event, 'prev_house_location')">
                                 <option value="" disabled selected>-- තෝරන්න --</option>
-                                <option value="A වර්ගය">A වර්ගය</option>
-                                <option value="B වර්ගය">B වර්ගය</option>
-                                <option value="C වර්ගය">C වර්ගය</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>ස්ථානය :</label>
-                        <select name="prev_house_location" class="dropdown-select">
-                            <option value="" disabled selected>-- ස්ථානය තෝරන්න --</option>
-                            <option value="කොළඹ">කොළඹ</option>
-                            <option value="මහනුවර">මහනුවර</option>
-                            <option value="ගාලු">ගාලු</option>
+                        <select name="prev_house_location" class="dropdown-select" onkeydown="handleEnter(event, 'declaration_year')">
+                            <option value="" disabled selected>-- තෝරන්න --</option>
                         </select>
                     </div>
                 </div>
@@ -629,10 +611,10 @@
                     <div style="margin-top: 15px; display: inline-block;">
                         ඉහත සඳහන් කර ඇති තොරතුරු සත්‍ය හා නිවැරදි බවත්, වැරදි ප්‍රකාශයක් කළ බවට තහවුරු වුවහොත්, කෙදිනක හෝ මට විරුද්ධව විනයානුකූලව කටයුතු කරනු ලැබීමට ඉඩ ඇති බවට මම දැනුවත් බවත් මෙයින් ප්‍රකාශ කරමි. මම දැනට වෙනත් දුම්රිය නිවාසයක ප්‍රධාන පදිංචිකරු නොවන බව ද සහතික කරමි. 
                         
-                       <input type="number" name="declaration_year" class="table-input inline-select-sm" placeholder="වර්ෂය" min="2000" max="2100" style="width: 90px; padding: 5px; display: inline-block;" required>
+                       <input type="number" name="declaration_year" class="table-input inline-select-sm" placeholder="වර්ෂය" min="2000" max="2100" style="width: 90px; padding: 5px; display: inline-block;" required onkeydown="handleEnter(event, 'declaration_month')">
                         වර්ෂයේ 
                         
-                        <select name="declaration_month" class="dropdown-select inline-select-sm" required>
+                        <select name="declaration_month" class="dropdown-select inline-select-sm" required onkeydown="handleEnter(event, 'salary-cert')">
                             <option value="" disabled selected>-- මාසය --</option>
                             <option value="ජනවාරි">ජනවාරි</option>
                             <option value="පෙබරවාරි">පෙබරවාරි</option>
@@ -651,7 +633,7 @@
                         
                         <div class="form-group" style="margin-top: 10px;">
                             <label for="salary-cert" title="මෙම ගොනුව ස්වයංක්‍රීයව ඔබගේ වැටුපත් අංකයෙන් rename වේ"> වැටුප් පත්‍රිකාවේ ඡායා පිටපත (PDF පමණි) :</label>
-                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'වැටුපත් අංකය භාවිතයෙන් rename වේ')">
+                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'වැටුපත් අංකය භාවිතයෙන් rename කරන්න')" onmouseout="hideRenameHint(this)" onkeydown="handleEnter(event, 'page3-date')">
                         </div>
                     </div>
                 </div>
@@ -875,51 +857,55 @@
             window.print();
         }
 
-        function addChildRow() {
-            const tbody = document.getElementById('children-tbody');
-            const newRow = tbody.insertRow();
-            newRow.innerHTML = `
-                <td><input type="text" class="table-input"></td>
-                <td>
-                    <select class="dropdown-select table-select">
-                        <option value="" disabled selected>-- තෝරන්න --</option>
-                        <option value="female">ස්ත්‍රී</option>
-                        <option value="male">පුරුෂ</option>
-                    </select>
-                </td>
-                <td><input type="date" class="form-input-date table-input"></td>
-                <td>
-                    <select class="dropdown-select table-select">
-                        <option value="" disabled selected>-- තෝරන්න --</option>
-                        <option value="married">විවාහක</option>
-                        <option value="Unmarried">අවිවාහක</option>
-                        <option value="Divorced">දික්කසාදිත</option>
-                        <option value="Widowed">වැන්දඹු</option>
-                    </select>
-                </td>
-                <td style="text-align: center;">
-                    <button type="button" onclick="removeRow(this)" class="remove-btn" style="background:#dc3545; color:white; border:none; padding:5px 10px; cursor:pointer; border-radius:3px;">X</button>
-                </td>
-            `;
-            document.getElementById('child-count-input').value = tbody.rows.length;
-        }
+       // දරුවන් සංඛ්‍යාවට අනුව පේළි ජනරේට් කිරීම
+function generateChildRows() {
+    const countInput = document.getElementById('child-count-input');
+    const tbody = document.getElementById('children-tbody');
+    tbody.innerHTML = ''; // කලින් තිබූ පේළි ඉවත් කිරීම
+    
+    const count = parseInt(countInput.value) || 0;
+    
+    for (let i = 0; i < count; i++) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><input type="text" class="form-input" name="child_name[]"></td>
+            <td>
+                <select class="dropdown-select table-select" name="child_gender[]">
+                    <option value="" disabled selected>-- තෝරන්න --</option>
+                    <option value="male">පුරුෂ</option>
+                    <option value="female">ස්ත්‍රී</option>
+                </select>
+            </td>
+            <td><input type="date" class="form-input-date" name="child_dob[]"></td>
+            <td>
+                <select class="dropdown-select table-select" name="child_civil_status[]">
+                    <option value="" disabled selected>-- තෝරන්න --</option>
+                    <option value="unmarried">අවිවාහක</option>
+                    <option value="married">විවාහක</option>
+                    <option value="divorced">දික්කසාද</option>
+                    <option value="widowed">වැන්දඹු</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" class="clear-row-btn" onclick="clearChildRow(this)">Clear</button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    }
+}
 
-        function generateChildRows() {
-            const count = parseInt(document.getElementById('child-count-input').value) || 0;
-            const tbody = document.getElementById('children-tbody');
-            const currentRowCount = tbody.rows.length;
-            if (count > currentRowCount) {
-                for (let i = 0; i < count - currentRowCount; i++) addChildRow();
-            } else if (count < currentRowCount && count >= 0) {
-                for (let i = 0; i < currentRowCount - count; i++) tbody.deleteRow(tbody.rows.length - 1);
-            }
+// අදාළ පේළියේ දත්ත පමණක් clear (මකා) දැමීමට
+function clearChildRow(button) {
+    const row = button.closest('tr');
+    const inputs = row.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        if (input.type === 'text' || input.type === 'date') {
+            input.value = '';
+        } else if (input.tagName === 'SELECT') {
+            input.selectedIndex = 0;
         }
-
-        function removeRow(btn) {
-            const row = btn.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-            document.getElementById('child-count-input').value = document.getElementById('children-tbody').rows.length;
-        }
+    });
+}
 
         // From දිනය වෙනස් වූ විට To දිනය පාලනය කිරීම
 function validateToDate(fromInput) {
@@ -942,8 +928,8 @@ function validateToDate(fromInput) {
         document.getElementById('railway-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const appNo = "SLR/HQ/" + Math.floor(100000 + Math.random() * 900000);
-            // සාර්ථකව Submit වූ විට වෙනත් success.html පිටුව වෙත යොමු කිරීම (අංකය සමඟ)
-            window.location.href = `success.html?appNo=${appNo}`;
+            // සාර්ථකව Submit වූ විට වෙනත් success_si.html පිටුව වෙත යොමු කිරීම (අංකය සමඟ)
+            window.location.href = `success_si.html?appNo=${appNo}`;
         });
     </script>
 </body>
