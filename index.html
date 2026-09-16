@@ -379,8 +379,8 @@
                         <div class="form-group full-width">
                             <label>කලත්‍රයා රජයේ රැකියාවක නියුතු වේද?</label>
                             <div class="radio-group" onkeydown="handleEnter(event, 'gov-spouse-details')">
-                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)" onkeydown="handleEnter(event, 'gov_department')"> ඔව්</label>
-                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)" onkeydown="handleEnter(event, 'permanent-address')"> නැත</label>
+                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)" onkeydown="handleEnter(event, 'spouse_department')"> ඔව්</label>
+                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)" onkeydown="handleEnter(event, 'permanent_address_sec6')"> නැත</label>
                             </div>
                         </div>
 
@@ -413,7 +413,7 @@
 
                             <div class="form-group">
                                 <label>V. දැනට ලබන වාර්ෂික වැටුප :</label>
-                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'permanent_address')">
+                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'permanent_address_sec6')">
                             </div>
                         </div>
                     </div>
@@ -423,7 +423,7 @@
                 
                 <div class="form-group">
                     <label>I. ස්ථිර පදිංචි ස්ථානයේ ලිපිනය :</label>
-                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'owner_is_self')">
+                    <input type="text" id="permanent_address_sec6" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'owner_is_self')">
                 </div>
 
                 <div class="form-row">
@@ -501,7 +501,7 @@
                             <label>V. ගෙවන මාසික කුලිය :</label>
                             <div style="display: flex; align-items: center; gap: 5px;">
                                 <span style="font-weight: bold;">Rs.</span>
-                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0" placeholder="උදා: 15000" >
+                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0">
                             </div>
                         </div>
                     </div>

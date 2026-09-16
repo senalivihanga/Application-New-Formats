@@ -187,7 +187,7 @@
                     </div>
                     <div class="form-group indent">
                         <label>iii. Office maintaining Personal Files :</label>
-                        <select name="official_letter_office" class="dropdown-select" style="width: 60%;" onkeydown="handleEnter(event, 'gov-date')">
+                        <select name="official_letter_office" class="dropdown-select" style="width: 60%;" onkeydown="handleEnter(event, 'is_permanent')">
                             <option value="" disabled selected>-- Select Office --</option>
                         </select>
                     </div>
@@ -198,45 +198,45 @@
                 <div class="form-group">
                     <label>Is your service confirmed?</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="is_permanent" value="yes" onclick="toggleContainer('permanent-date-group', true)"> Yes</label>
-                        <label class="radio-label"><input type="radio" name="is_permanent" value="no" onclick="toggleContainer('permanent-date-group', false)"> No</label>
+                        <label class="radio-label"><input type="radio" name="is_permanent" value="yes" onclick="toggleContainer('permanent-date-group', true)" onkeydown="handleEnter(event, 'confirmed-date')"> Yes</label>
+                        <label class="radio-label"><input type="radio" name="is_permanent" value="no" onclick="toggleContainer('permanent-date-group', false)" onkeydown="handleEnter(event, 'gov-date')"> No</label>
                     </div>
                 </div>
 
                 <div id="permanent-date-group" class="form-row" style="display: none;">
                     <div class="form-group">
                         <label for="confirmed-date">Date of Confirmation :</label>
-                        <input type="date" id="confirmed-date" name="confirmed_date" class="form-input-date">
+                        <input type="date" id="confirmed-date" name="confirmed_date" class="form-input-date" onchange="setMinDate('confirmed-date', ['gov-date', 'railway-date', 'subdept-date', 'current-post-date'])" onkeydown="handleEnter(event, 'gov-date')">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="gov-date">I. Date of Initial Appointment to Government Service :</label>
-                        <input type="date" id="gov-date" name="gov_date" class="form-input-date" onchange="setMinDate('gov-date', ['railway-date', 'subdept-date', 'current-post-date', 'confirmed-date'])">
+                        <input type="date" id="gov-date" name="gov_date" class="form-input-date" onchange="setMinDate('gov-date', ['railway-date', 'subdept-date', 'current-post-date', 'confirmed-date'])" onkeydown="handleEnter(event, 'railway-date')">
                     </div>
                     <div class="form-group">
                         <label for="railway-date">II. Date of Initial Appointment to Railway Service :</label>
-                        <input type="date" id="railway-date" name="railway_date" class="form-input-date" onchange="setMinDate('railway-date', ['subdept-date', 'current-post-date'])">
+                        <input type="date" id="railway-date" name="railway_date" class="form-input-date" onchange="setMinDate('railway-date', ['subdept-date', 'current-post-date'])" onkeydown="handleEnter(event, 'subdept-date')">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="subdept-date">III. Date of Assuming Duties in the Sub-Department:</label>
-                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date" onchange="setMinDate('subdept-date', ['current-post-date'])">
+                        <input type="date" id="subdept-date" name="subdept_date" class="form-input-date" onchange="setMinDate('subdept-date', ['current-post-date'])" onkeydown="handleEnter(event, 'current-post-date')">
                     </div>
                     <div class="form-group">
                         <label for="current-post-date">IV. Date of Appointment to Current Post:</label>
-                        <input type="date" id="current-post-date" name="current_post_date" class="form-input-date">
+                        <input type="date" id="current-post-date" name="current_post_date" class="form-input-date" onkeydown="handleEnter(event, 'other_subdept')">
                     </div>
                 </div>
 
                 <div class="form-group full-width">
                     <label>V. Have you served in other Sub-Departments of the Railway Department?</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)"> Yes</label>
-                        <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)"> No</label>
+                        <label class="radio-label"><input type="radio" name="other_subdept" value="yes" onclick="toggleTable('table-v', true)" onkeydown="handleEnter(event, 'table-v')"> Yes</label>
+                        <label class="radio-label"><input type="radio" name="other_subdept" value="no" onclick="toggleTable('table-v', false)" onkeydown="handleEnter(event, 'service_breaks')"> No</label>
                     </div>
                 </div>
 
@@ -303,10 +303,10 @@
                         <label>I. If you have children, will they reside with you? :</label>
                         <div class="radio-group">
                             <label class="radio-label">
-                                <input type="radio" name="has_children" value="yes" onclick="toggleContainer('children-details', true)"> Yes
+                                <input type="radio" name="has_children" value="yes" onclick="toggleContainer('children-details', true)" onkeydown="handleEnter(event, 'child-count-input')"> Yes
                             </label>
                             <label class="radio-label">
-                                <input type="radio" name="has_children" value="no" onclick="toggleContainer('children-details', false)"> No
+                                <input type="radio" name="has_children" value="no" onclick="toggleContainer('children-details', false)" onkeydown="handleEnter(event, 'has_spouse')"> No
                             </label>
                         </div>
                     </div>
@@ -342,8 +342,8 @@
                     <div class="form-group full-width">
                         <label>If you have a spouse, will they reside with you? :</label>
                         <div class="radio-group">
-                            <label class="radio-label"><input type="radio" name="has_spouse" value="yes" onclick="toggleContainer('spouse-details', true)"> Yes</label>
-                            <label class="radio-label"><input type="radio" name="has_spouse" value="no" onclick="toggleContainer('spouse-details', false)"> No</label>
+                            <label class="radio-label"><input type="radio" name="has_spouse" value="yes" onclick="toggleContainer('spouse-details', true)" onkeydown="handleEnter(event, 'spouse_name')"> Yes</label>
+                            <label class="radio-label"><input type="radio" name="has_spouse" value="no" onclick="toggleContainer('spouse-details', false)" onkeydown="handleEnter(event, 'permanent_address')"> No</label>
                         </div>
                     </div>
 
@@ -351,24 +351,24 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>I. Full Name :</label>
-                                 <input type="text" name="spouse_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                 <input type="text" name="spouse_name" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_national_id')">
                             </div>
                             <div class="form-group">
                                 <label>II. National Identity Card (NIC) Number :</label>
-                                <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_national_id" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_occupation')">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>III. Occupation :</label>
-                             <input type="text" name="spouse_occupation" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                             <input type="text" name="spouse_occupation" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_moving')">
                         </div>
 
                         <div class="form-group">
                             <label>IV. If you are allocated a railway quarter, will the spouse come to reside there or not? :</label>
                             <div class="radio-group" style="margin-top: 5px;">
-                                <label class="radio-label"><input type="radio" name="spouse_moving" value="Will come"> Will come</label>
-                                <label class="radio-label"><input type="radio" name="spouse_moving" value="Will not come"> Will not come</label>
+                                <label class="radio-label"><input type="radio" name="spouse_moving" value="Will come" onkeydown="handleEnter(event, 'spouse_gov_job')"> Will come</label>
+                                <label class="radio-label"><input type="radio" name="spouse_moving" value="Will not come" onkeydown="handleEnter(event, 'spouse_gov_job')"> Will not come</label>
                             </div>
                         </div>
 
@@ -377,8 +377,8 @@
                         <div class="form-group full-width">
                             <label>Is the spouse employed in the government sector?</label>
                             <div class="radio-group">
-                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)"> Yes</label>
-                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)"> No</label>
+                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="yes" onclick="toggleContainer('gov-spouse-details', true)" onkeydown="handleEnter(event, 'spouse_department')"> Yes</label>
+                                <label class="radio-label"><input type="radio" name="spouse_gov_job" value="no" onclick="toggleContainer('gov-spouse-details', false)" onkeydown="handleEnter(event, 'permanent_address_sec6')"> No</label>
                             </div>
                         </div>
 
@@ -386,61 +386,61 @@
                             <div class="form-row" style="margin-top: 10px;">
                                 <div class="form-group">
                                     <label>I. Department of Service :</label>
-                                    <input type="text" name="spouse_department" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                    <input type="text" name="spouse_department" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_service_number')">
                                 </div>
                                 <div class="form-group">
                                     <label>Service Number :</label>
-                                    <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                    <input type="text" name="spouse_service_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_position')">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>II. Designation :</label>
-                                <input type="text" name="spouse_position" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_position" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_institution')">
                             </div>
 
                             <div class="form-group">
                                 <label>III. Head of Institution and Address :</label>
-                                <input type="text" name="spouse_institution" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_institution" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_current_post')">
                             </div>
 
                             <div class="form-group">
                                 <label>IV. Current Workplace and Address :</label>
-                                <input type="text" name="spouse_current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_current_post" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'spouse_annual_salary')">
                             </div>
 
                             <div class="form-group">
                                 <label>V. Current Annual Salary :</label>
-                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                                <input type="text" name="spouse_annual_salary" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'permanent_address_sec6')">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="section-title">6. Permanent Residence</div>
+                <div class="section-title">6. Permanent Residence </div>
                 
                 <div class="form-group">
                     <label>I. Address of Permanent Residence :</label>
-                    <input type="text" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" id="permanent_address_sec6" name="permanent_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'owner_is_self')">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>II. Are you the owner of it?</label>
                         <div class="radio-group" style="margin-top: 5px;">
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes" onclick="toggleOwnerRelationship(false)"> Yes</label>
-                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no" onclick="toggleOwnerRelationship(true)"> No</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="yes" onclick="toggleOwnerRelationship(false)" onkeydown="handleEnter(event, 'owner_from_home')"> Yes</label>
+                            <label class="radio-label"><input type="radio" name="owner_is_self" value="no" onclick="toggleOwnerRelationship(true)" onkeydown="handleEnter(event, 'owner_relationship')"> No</label>
                         </div>
                         <div id="owner-relationship-group" style="margin-top: 10px; display: none;">
                             <label style="display: block; margin-bottom: 5px;">If not, relationship to the owner :</label>
-                            <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <input type="text" name="owner_relationship" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'commute_from_home')">
                         </div>
                     </div>
                     <div class="form-group">
                         <label>III. Do you commute to work from there?</label>
                         <div class="radio-group" style="margin-top: 5px;">
-                            <label class="radio-label"><input type="radio" name="commute_from_home" value="yes"> Yes</label>
-                            <label class="radio-label"><input type="radio" name="commute_from_home" value="no"> No</label>
+                            <label class="radio-label"><input type="radio" name="commute_from_home" value="yes" onkeydown="handleEnter(event, 'permanent-district')"> Yes</label>
+                            <label class="radio-label"><input type="radio" name="commute_from_home" value="no" onkeydown="handleEnter(event, 'permanent-district')"> No</label>
                         </div>
                     </div>
                 </div>
@@ -448,13 +448,13 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="permanent-district">IV. Permanent Residence District :</label>
-                        <select id="permanent-district" name="permanent_district" class="dropdown-select">
+                        <select id="permanent-district" name="permanent_district" class="dropdown-select" onkeydown="handleEnter(event, 'nearest-city-distance')">
                             <option value="" disabled selected>-- Select --</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>V. Nearest Main Town and Distance to it :</label>
-                        <input type="number" id="nearest-city-distance" name="nearest_city_distance" class="table-input" min="0" step="1" placeholder="(km)">
+                        <input type="number" id="nearest-city-distance" name="nearest_city_distance" class="table-input" min="0" step="1" placeholder="(km)" onkeydown="handleEnter(event, 'branch-to-work-distance')">
                     </div>
                 </div>
 
@@ -468,7 +468,7 @@
                 <div class="form-group full-width">
                     <label>Are you currently residing in a rented house?</label>
                     <div class="radio-group">
-                        <label class="radio-label"><input type="radio" name="is_rented_house" value="yes" onclick="toggleContainer('rented-house-details', true)"> Yes</label>
+                        <label class="radio-label"><input type="radio" name="is_rented_house" value="yes" onclick="toggleContainer('rented-house-details', true)" onkeydown="handleEnter(event, 'house_owner')"> Yes</label>
                         <label class="radio-label"><input type="radio" name="is_rented_house" value="no" onclick="toggleContainer('rented-house-details', false)"> No</label>
                     </div>
                 </div>
@@ -477,29 +477,29 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>I. Owner of the House :</label>
-                            <input type="text" name="house_owner" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                            <input type="text" name="house_owner" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'house_location')">
                         </div>
                         <div class="form-group">
                             <label>II. Location :</label>
-                             <input type="text" name="house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                             <input type="text" name="house_location" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'rented_address')">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>III. Address :</label>
-                         <input type="text" name="rented_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                         <input type="text" name="rented_address" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'rent_date')">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label for="rent-date">IV. Date Occupied :</label>
-                            <input type="date" id="rent-date" name="rent_date" class="form-input-date">
+                            <input type="date" id="rent-date" name="rent_date" class="form-input-date" onkeydown="handleEnter(event, 'monthly_rent')">
                         </div>
                         <div class="form-group">
                             <label>V. Monthly Rent Paid :</label>
                             <div style="display: flex; align-items: center; gap: 5px;">
                                 <span style="font-weight: bold;">Rs.</span>
-                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0" placeholder="Ex: 15000">
+                                <input type="number" name="monthly_rent" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" min="0">
                             </div>
                         </div>
                     </div>
@@ -518,19 +518,19 @@
                 
                 <div class="form-group full-width">
                     <div class="radio-group" style="margin-bottom: 10px;">
-                        <label class="radio-label"><input type="radio" name="has_disability" value="yes" onclick="toggleContainer('disability-details', true)"> Yes</label>
-                        <label class="radio-label"><input type="radio" name="has_disability" value="no" onclick="toggleContainer('disability-details', false)"> No</label>
+                        <label class="radio-label"><input type="radio" name="has_disability" value="yes" onclick="toggleContainer('disability-details', true)" onkeydown="handleEnter(event, 'disability_details')"> Yes</label>
+                        <label class="radio-label"><input type="radio" name="has_disability" value="no" onclick="toggleContainer('disability-details', false)" onkeydown="handleEnter(event, 'quarter_number')"> No</label>
                     </div>
                 </div>
 
                 <div id="disability-details" style="display: none;">
                     <div class="form-group">
                         <label>Details of Illness and Nature :</label>
-                        <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="disability_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'medical-cert')">
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label for="medical-cert" title="This file will be automatically renamed with your NIC number">Government Medical Certificate (PDF only) :</label>
-                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'Rename using National Identity Card number')" onmouseout="hideRenameHint(this)">
+                        <input type="file" id="medical-cert" name="medical_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'Rename using National Identity Card number')" onmouseout="hideRenameHint(this)" onkeydown="handleEnter(event, 'quarter_number')">
                     </div>
                     <p class="note-text">(The disease and its nature must be certified through a Government Medical Certificate)</p>
                 </div>
@@ -540,39 +540,39 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>I. Quarter Number :</label>
-                        <input type="text" name="quarter_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="quarter_number" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'moved-out-date')">
                     </div>
                     <div class="form-group">
                         <label for="moved-out-date">Date Vacated :</label>
-                        <input type="date" id="moved-out-date" name="moved_out_date" class="form-input-date">
+                        <input type="date" id="moved-out-date" name="moved_out_date" class="form-input-date" onkeydown="handleEnter(event, 'reason_for_moving_out')">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Reason for Vacating :</label>
-                    <input type="text" name="reason_for_moving_out" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                    <input type="text" name="reason_for_moving_out" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'rejected_quarters')">
                 </div>
 
                 <div class="form-group full-width">
                     <label>II. Have you previously rejected a railway quarter allocated to you?</label>
                     <div class="radio-group" style="margin-top: 5px; margin-bottom: 10px;">
-                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="yes" onclick="toggleContainer('rejected-details', true)"> Yes</label>
-                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="no" onclick="toggleContainer('rejected-details', false)"> No</label>
+                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="yes" onclick="toggleContainer('rejected-details', true)" onkeydown="handleEnter(event, 'rejected_details')"> Yes</label>
+                        <label class="radio-label"><input type="radio" name="rejected_quarters" value="no" onclick="toggleContainer('applied_before', false)" onkeydown="handleEnter(event, 'applied_before')"> No</label>
                     </div>
                 </div>
 
                 <div id="rejected-details" style="display: none;">
                     <div class="form-group">
                         <label>If so, details thereof :</label>
-                        <input type="text" name="rejected_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;">
+                        <input type="text" name="rejected_details" class="table-input" style="padding: 10px; font-size: 14px; width: 100%;" onkeydown="handleEnter(event, 'applied_before')">
                     </div>
                 </div>
 
                 <div class="form-group full-width">
                     <label>III. Have you previously submitted an application to obtain a railway quarter?</label>
                     <div class="radio-group" style="margin-top: 5px;">
-                        <label class="radio-label"><input type="radio" name="applied_before" value="yes" onclick="toggleContainer('applied-before-details', true)"> Yes</label>
-                        <label class="radio-label"><input type="radio" name="applied_before" value="no" onclick="toggleContainer('applied-before-details', false)"> No</label>
+                        <label class="radio-label"><input type="radio" name="applied_before" value="yes" onclick="toggleContainer('applied-before-details', true)" onkeydown="handleEnter(event, 'applied-date-prev')"> Yes</label>
+                        <label class="radio-label"><input type="radio" name="applied_before" value="no" onclick="toggleContainer('declaration_year', false)" onkeydown="handleEnter(event, 'declaration_year')"> No</label>
                     </div>
                 </div>
 
@@ -580,18 +580,18 @@
                     <div class="form-row" style="margin-top: 10px;">
                         <div class="form-group">
                             <label for="applied-date-prev">Date Applied :</label>
-                            <input type="date" id="applied-date-prev" name="applied_date_prev" class="form-input-date">
+                            <input type="date" id="applied-date-prev" name="applied_date_prev" class="form-input-date" onkeydown="handleEnter(event, 'prev_house_type')">
                         </div>
                         <div class="form-group">
                             <label>Quarter Type :</label>
-                            <select name="prev_house_type" class="dropdown-select">
+                            <select name="prev_house_type" class="dropdown-select" onkeydown="handleEnter(event, 'prev_house_location')">
                                 <option value="" disabled selected>-- Select --</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Location :</label>
-                        <select name="prev_house_location" class="dropdown-select">
+                        <select name="prev_house_location" class="dropdown-select" onkeydown="handleEnter(event, 'declaration_year')">
                             <option value="" disabled selected>-- Select Location --</option>
                         </select>
                     </div>
@@ -609,10 +609,10 @@
                     <div style="margin-top: 15px; display: inline-block;">
                         I hereby declare that the information stated above is true and correct, and I am aware that if proven to have made a false statement, disciplinary action may be taken against me at any time. I also certify that I am not currently the primary resident of another railway quarter. 
                         
-                       <input type="number" name="declaration_year" class="table-input inline-select-sm" placeholder="Year" min="2000" max="2100" style="width: 90px; padding: 5px; display: inline-block;" required>
+                       <input type="number" name="declaration_year" class="table-input inline-select-sm" placeholder="Year" min="2000" max="2100" style="width: 90px; padding: 5px; display: inline-block;" required onkeydown="handleEnter(event, 'declaration_month')">
                         Year 
                         
-                        <select name="declaration_month" class="dropdown-select inline-select-sm" required>
+                        <select name="declaration_month" class="dropdown-select inline-select-sm" onkeydown="handleEnter(event, 'salary-cert')">
                             <option value="" disabled selected>-- Month --</option>
                             <option value="January">January</option>
                             <option value="February">February</option>
@@ -631,7 +631,7 @@
                         
                         <div class="form-group" style="margin-top: 10px;">
                             <label for="salary-cert" title="This file will be automatically renamed with your salary slip number"> Salary Slip Copy (PDF only) :</label>
-                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'Rename using salary slip number')" onmouseout="hideRenameHint(this)">
+                            <input type="file" id="salary-cert" name="salary_cert" class="form-input" accept=".pdf" onmouseover="showRenameHint(this, 'Rename using salary slip number')" onmouseout="hideRenameHint(this)" onkeydown="handleEnter(event, 'page3-date')">
                         </div>
                     </div>
                 </div>
@@ -927,8 +927,7 @@
         document.getElementById('railway-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const appNo = "SLR/HQ/" + Math.floor(100000 + Math.random() * 900000);
-            window.location.href = `success_en
-            .html?appNo=${appNo}`;
+            window.location.href = `success_en.html?appNo=${appNo}`;
         });
     </script>
 </body>
