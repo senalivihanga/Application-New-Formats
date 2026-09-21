@@ -72,7 +72,8 @@
         <p>ශ්‍රී ලංකා දුම්රිය දෙපාර්තමේන්තුවේ නිවාස අයදුම්පත සාර්ථකව භාර ගන්නා ලදී. ඔබගේ යොමු අංකය පහතින් දැක්වේ:</p>
         
         <div>
-            <span id="display-app-no" class="app-number">SLR/HQ/------</span>
+            <!-- නව ආකෘතිය පමණක් ඉතිරි කර ඇත -->
+            <span id="display-app-no" class="app-number">SLR/AOT/2026/0001</span>
         </div>
 
         <div>
@@ -81,7 +82,6 @@
     </div>
 
     <script>
-        // URL එකෙන් අයදුම්පත් අංකය ලබාගෙන මෙහි පෙන්වීම
         const urlParams = new URLSearchParams(window.location.search);
         const appNo = urlParams.get('appNo');
         if (appNo) {

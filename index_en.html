@@ -924,11 +924,22 @@
             }
         }
 
-        document.getElementById('railway-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const appNo = "SLR/HQ/" + Math.floor(100000 + Math.random() * 900000);
-            window.location.href = `success_en.html?appNo=${appNo}`;
-        });
+       document.getElementById('railway-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // වත්මන් වර්ෂය (Current Year) ලබා ගැනීම
+    const currentYear = new Date().getFullYear();
+    
+    // 4 අංකයකින් යුත් අහඹු අංකයක් (0001 සිට 9999 දක්වා) උත්පාදනය කිරීම
+    const randomNum = Math.floor(1000 + Math.random() * 9000);
+    
+    // නව ආකෘතියට අංකය සැකැසීම (SLR/AOT/2026/1234)
+    const appNo = `SLR/AOT/${currentYear}/${randomNum}`;
+    
+    // success පිටුවට අදාළ අංකය සමඟ Redirect කිරීම
+    window.location.href = `success_en.html?appNo=${appNo}`;
+    // (සිංහල පිටුවට යා යුතු නම් 'success_si.html' ලෙස වෙනස් කරන්න)
+});
     </script>
 </body>
 </html>

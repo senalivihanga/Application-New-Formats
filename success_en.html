@@ -72,7 +72,8 @@
         <p>Your application for Sri Lanka Railways Quarters has been successfully received. Your reference number is shown below:</p>
         
         <div>
-            <span id="display-app-no" class="app-number">SLR/HQ/------</span>
+            <!-- ነባර අංකය වෙනුවට Dynamic ලෙස වෙනස් වන ස්ථානය -->
+            <span id="display-app-no" class="app-number">SLR/AOT/2026/0001</span>
         </div>
 
         <div>
@@ -81,11 +82,18 @@
     </div>
 
     <script>
-        // Retrieve and display application number from URL parameters
+        // URL එකෙන් ලැබෙන අංකය (ဥပද්‍රව්‍ය: ?appNo=SLR/AOT/2026/0045) පරීක්ෂා කිරීම
         const urlParams = new URLSearchParams(window.location.search);
         const appNo = urlParams.get('appNo');
+        
         if (appNo) {
             document.getElementById('display-app-no').textContent = appNo;
+        } else {
+            // URL එකේ අංකයක් නොමැති නම්, ස්වයංක්‍රීයව වත්මන් වර්ෂය (Current Year) සහ 0001 පෙන්වීමට අවශ්‍ය නම්:
+            const currentYear = new Date().getFullYear();
+            // ඔබට අවශ්‍ය නම් මෙහිදී අංකය Database එකෙන් හෝ ඊළඟ අංකය (Auto-increment) ලෙස generate කරගත හැක.
+            // උදාහරණයක් ලෙස: 
+            // document.getElementById('display-app-no').textContent = `SLR/AOT/${currentYear}/0001`;
         }
     </script>
 </body>
